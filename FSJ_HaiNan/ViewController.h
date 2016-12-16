@@ -11,5 +11,8 @@
 @interface ViewController : UIViewController
 
 
+@property (nonatomic, copy)NSData* headData;
+
+@property (nonatomic, copy)NSString* ShebeiIP;
 @end
 

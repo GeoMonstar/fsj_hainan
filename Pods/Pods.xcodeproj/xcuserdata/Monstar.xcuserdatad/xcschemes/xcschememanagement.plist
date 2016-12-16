@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>EGOCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FSJ_HaiNan.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>4D4DF8509412D7681F5B4BBDC45830DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4FD627257BFC944BD29004929A9DE923</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>731AD67C67D17E781166A0D9F4655372</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE9D7F494E73928BDC602AD5C75EB31A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF339EC38C81C0E6CB2D086C6A15F66B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

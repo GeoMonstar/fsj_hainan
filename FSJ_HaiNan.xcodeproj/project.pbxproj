@@ -7,15 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28C845E3110B444BC9EA56EB /* Pods_FSJ_HaiNan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F93253387D9D20FE47DD9D1 /* Pods_FSJ_HaiNan.framework */; };
+		851EDBE21DF9467F0049E529 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851EDBE11DF9467F0049E529 /* BaseViewController.m */; };
+		851EDBE61DF9544A0049E529 /* NSString+NSStringHexToBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 851EDBE51DF9544A0049E529 /* NSString+NSStringHexToBytes.m */; };
 		853A23111DF8F23100734A0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23101DF8F23100734A0C /* main.m */; };
 		853A23141DF8F23100734A0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23131DF8F23100734A0C /* AppDelegate.m */; };
 		853A23171DF8F23100734A0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23161DF8F23100734A0C /* ViewController.m */; };
 		853A231A1DF8F23100734A0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853A23181DF8F23100734A0C /* Main.storyboard */; };
 		853A231C1DF8F23100734A0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 853A231B1DF8F23100734A0C /* Assets.xcassets */; };
 		853A231F1DF8F23100734A0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853A231D1DF8F23100734A0C /* LaunchScreen.storyboard */; };
+		853A23491DF8F89F00734A0C /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23411DF8F89F00734A0C /* AsyncSocket.m */; };
+		853A234A1DF8F89F00734A0C /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23431DF8F89F00734A0C /* AsyncUdpSocket.m */; };
+		853A234C1DF8F89F00734A0C /* FSJUdpSocketTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23481DF8F89F00734A0C /* FSJUdpSocketTool.m */; };
+		853A235A1DF90A6B00734A0C /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 853A23591DF90A6B00734A0C /* DOPDropDownMenu.m */; };
+		853C2E551E00DD4C00BA3ED7 /* txxyDTV50.xml in Resources */ = {isa = PBXBuildFile; fileRef = 853C2E541E00DD4C00BA3ED7 /* txxyDTV50.xml */; };
+		853C2E571E00DE9100BA3ED7 /* ParametersList.json in Resources */ = {isa = PBXBuildFile; fileRef = 853C2E561E00DE9100BA3ED7 /* ParametersList.json */; };
+		85D58BD01E02473B008CBE59 /* SearchFrameBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D58BCF1E02473B008CBE59 /* SearchFrameBody.m */; };
+		85E217A01DFE3A4E0003BFA2 /* FSJTcpSocketTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E2179F1DFE3A4E0003BFA2 /* FSJTcpSocketTool.m */; };
+		85E217C91DFE7F7D0003BFA2 /* CRC16.c in Sources */ = {isa = PBXBuildFile; fileRef = 85E217BA1DFE7F7D0003BFA2 /* CRC16.c */; };
+		85E217CA1DFE7F7D0003BFA2 /* ParameterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E217BD1DFE7F7D0003BFA2 /* ParameterModel.m */; };
+		85E217CB1DFE7F7D0003BFA2 /* ParametersList.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E217BF1DFE7F7D0003BFA2 /* ParametersList.m */; };
+		85E217CD1DFE7F7D0003BFA2 /* ReadFrameBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E217C21DFE7F7D0003BFA2 /* ReadFrameBody.m */; };
+		85E217CE1DFE7F7D0003BFA2 /* ReciveFrameHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E217C41DFE7F7D0003BFA2 /* ReciveFrameHead.m */; };
+		85E217CF1DFE7F7D0003BFA2 /* SendFrameHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E217C61DFE7F7D0003BFA2 /* SendFrameHead.m */; };
+		85E217D01DFE7F7D0003BFA2 /* WriteFrameBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E217C81DFE7F7D0003BFA2 /* WriteFrameBody.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F93253387D9D20FE47DD9D1 /* Pods_FSJ_HaiNan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSJ_HaiNan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		836CD971B064AD319F7889C9 /* Pods-FSJ_HaiNan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJ_HaiNan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FSJ_HaiNan/Pods-FSJ_HaiNan.debug.xcconfig"; sourceTree = "<group>"; };
+		851EDBE01DF9467F0049E529 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		851EDBE11DF9467F0049E529 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		851EDBE41DF9544A0049E529 /* NSString+NSStringHexToBytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringHexToBytes.h"; sourceTree = "<group>"; };
+		851EDBE51DF9544A0049E529 /* NSString+NSStringHexToBytes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringHexToBytes.m"; sourceTree = "<group>"; };
 		853A230C1DF8F23100734A0C /* FSJ_HaiNan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSJ_HaiNan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		853A23101DF8F23100734A0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		853A23121DF8F23100734A0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +50,36 @@
 		853A231B1DF8F23100734A0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		853A231E1DF8F23100734A0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		853A23201DF8F23100734A0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		853A23401DF8F89F00734A0C /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		853A23411DF8F89F00734A0C /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		853A23421DF8F89F00734A0C /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		853A23431DF8F89F00734A0C /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		853A23471DF8F89F00734A0C /* FSJUdpSocketTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSJUdpSocketTool.h; sourceTree = "<group>"; };
+		853A23481DF8F89F00734A0C /* FSJUdpSocketTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSJUdpSocketTool.m; sourceTree = "<group>"; };
+		853A23581DF90A6B00734A0C /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		853A23591DF90A6B00734A0C /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
+		853C2E541E00DD4C00BA3ED7 /* txxyDTV50.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = txxyDTV50.xml; sourceTree = "<group>"; };
+		853C2E561E00DE9100BA3ED7 /* ParametersList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ParametersList.json; sourceTree = "<group>"; };
+		858A4A231DF95D1500FB8F0B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		85D58BCE1E02473B008CBE59 /* SearchFrameBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchFrameBody.h; sourceTree = "<group>"; };
+		85D58BCF1E02473B008CBE59 /* SearchFrameBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFrameBody.m; sourceTree = "<group>"; };
+		85E2179E1DFE3A4E0003BFA2 /* FSJTcpSocketTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSJTcpSocketTool.h; sourceTree = "<group>"; };
+		85E2179F1DFE3A4E0003BFA2 /* FSJTcpSocketTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSJTcpSocketTool.m; sourceTree = "<group>"; };
+		85E217BA1DFE7F7D0003BFA2 /* CRC16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CRC16.c; sourceTree = "<group>"; };
+		85E217BB1DFE7F7D0003BFA2 /* CRC16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRC16.h; sourceTree = "<group>"; };
+		85E217BC1DFE7F7D0003BFA2 /* ParameterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterModel.h; sourceTree = "<group>"; };
+		85E217BD1DFE7F7D0003BFA2 /* ParameterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterModel.m; sourceTree = "<group>"; };
+		85E217BE1DFE7F7D0003BFA2 /* ParametersList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParametersList.h; sourceTree = "<group>"; };
+		85E217BF1DFE7F7D0003BFA2 /* ParametersList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParametersList.m; sourceTree = "<group>"; };
+		85E217C11DFE7F7D0003BFA2 /* ReadFrameBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadFrameBody.h; sourceTree = "<group>"; };
+		85E217C21DFE7F7D0003BFA2 /* ReadFrameBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadFrameBody.m; sourceTree = "<group>"; };
+		85E217C31DFE7F7D0003BFA2 /* ReciveFrameHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReciveFrameHead.h; sourceTree = "<group>"; };
+		85E217C41DFE7F7D0003BFA2 /* ReciveFrameHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReciveFrameHead.m; sourceTree = "<group>"; };
+		85E217C51DFE7F7D0003BFA2 /* SendFrameHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendFrameHead.h; sourceTree = "<group>"; };
+		85E217C61DFE7F7D0003BFA2 /* SendFrameHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendFrameHead.m; sourceTree = "<group>"; };
+		85E217C71DFE7F7D0003BFA2 /* WriteFrameBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteFrameBody.h; sourceTree = "<group>"; };
+		85E217C81DFE7F7D0003BFA2 /* WriteFrameBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteFrameBody.m; sourceTree = "<group>"; };
+		B585B7B567AB06E728FD3C99 /* Pods-FSJ_HaiNan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJ_HaiNan.release.xcconfig"; path = "Pods/Target Support Files/Pods-FSJ_HaiNan/Pods-FSJ_HaiNan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +87,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28C845E3110B444BC9EA56EB /* Pods_FSJ_HaiNan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1425A4E68058CC5E68E92622 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F93253387D9D20FE47DD9D1 /* Pods_FSJ_HaiNan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		851EDBE31DF954300049E529 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				851EDBE41DF9544A0049E529 /* NSString+NSStringHexToBytes.h */,
+				851EDBE51DF9544A0049E529 /* NSString+NSStringHexToBytes.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		853A23031DF8F23100734A0C = {
 			isa = PBXGroup;
 			children = (
 				853A230E1DF8F23100734A0C /* FSJ_HaiNan */,
 				853A230D1DF8F23100734A0C /* Products */,
+				A0EF459C4CDF654195BF2D60 /* Pods */,
+				1425A4E68058CC5E68E92622 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +132,14 @@
 		853A230E1DF8F23100734A0C /* FSJ_HaiNan */ = {
 			isa = PBXGroup;
 			children = (
+				858A4A231DF95D1500FB8F0B /* PrefixHeader.pch */,
+				853A23261DF8F4E100734A0C /* App */,
 				853A23121DF8F23100734A0C /* AppDelegate.h */,
 				853A23131DF8F23100734A0C /* AppDelegate.m */,
 				853A23151DF8F23100734A0C /* ViewController.h */,
 				853A23161DF8F23100734A0C /* ViewController.m */,
+				851EDBE01DF9467F0049E529 /* BaseViewController.h */,
+				851EDBE11DF9467F0049E529 /* BaseViewController.m */,
 				853A23181DF8F23100734A0C /* Main.storyboard */,
 				853A231B1DF8F23100734A0C /* Assets.xcassets */,
 				853A231D1DF8F23100734A0C /* LaunchScreen.storyboard */,
@@ -79,6 +157,115 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		853A23261DF8F4E100734A0C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				853A233E1DF8F89F00734A0C /* Tools */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		853A233E1DF8F89F00734A0C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				85E217B91DFE7F7D0003BFA2 /* GQ3647C */,
+				851EDBE31DF954300049E529 /* Category */,
+				853A23571DF90A6B00734A0C /* DOPDropDownMenu - Enhanced */,
+				853A233F1DF8F89F00734A0C /* socket */,
+				853A23441DF8F89F00734A0C /* TCP:UDP */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		853A233F1DF8F89F00734A0C /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				853A23401DF8F89F00734A0C /* AsyncSocket.h */,
+				853A23411DF8F89F00734A0C /* AsyncSocket.m */,
+				853A23421DF8F89F00734A0C /* AsyncUdpSocket.h */,
+				853A23431DF8F89F00734A0C /* AsyncUdpSocket.m */,
+			);
+			path = socket;
+			sourceTree = "<group>";
+		};
+		853A23441DF8F89F00734A0C /* TCP:UDP */ = {
+			isa = PBXGroup;
+			children = (
+				853A23471DF8F89F00734A0C /* FSJUdpSocketTool.h */,
+				853A23481DF8F89F00734A0C /* FSJUdpSocketTool.m */,
+				85E2179E1DFE3A4E0003BFA2 /* FSJTcpSocketTool.h */,
+				85E2179F1DFE3A4E0003BFA2 /* FSJTcpSocketTool.m */,
+			);
+			path = "TCP:UDP";
+			sourceTree = "<group>";
+		};
+		853A23571DF90A6B00734A0C /* DOPDropDownMenu - Enhanced */ = {
+			isa = PBXGroup;
+			children = (
+				853A23581DF90A6B00734A0C /* DOPDropDownMenu.h */,
+				853A23591DF90A6B00734A0C /* DOPDropDownMenu.m */,
+			);
+			path = "DOPDropDownMenu - Enhanced";
+			sourceTree = "<group>";
+		};
+		85D58BCB1E0245EF008CBE59 /* 帧头 */ = {
+			isa = PBXGroup;
+			children = (
+				85E217C31DFE7F7D0003BFA2 /* ReciveFrameHead.h */,
+				85E217C41DFE7F7D0003BFA2 /* ReciveFrameHead.m */,
+				85E217C51DFE7F7D0003BFA2 /* SendFrameHead.h */,
+				85E217C61DFE7F7D0003BFA2 /* SendFrameHead.m */,
+			);
+			name = "帧头";
+			sourceTree = "<group>";
+		};
+		85D58BCC1E024601008CBE59 /* 帧体 */ = {
+			isa = PBXGroup;
+			children = (
+				85E217C11DFE7F7D0003BFA2 /* ReadFrameBody.h */,
+				85E217C21DFE7F7D0003BFA2 /* ReadFrameBody.m */,
+				85E217C71DFE7F7D0003BFA2 /* WriteFrameBody.h */,
+				85E217C81DFE7F7D0003BFA2 /* WriteFrameBody.m */,
+				85D58BCE1E02473B008CBE59 /* SearchFrameBody.h */,
+				85D58BCF1E02473B008CBE59 /* SearchFrameBody.m */,
+			);
+			name = "帧体";
+			sourceTree = "<group>";
+		};
+		85D58BCD1E024620008CBE59 /* 解析类 */ = {
+			isa = PBXGroup;
+			children = (
+				853C2E541E00DD4C00BA3ED7 /* txxyDTV50.xml */,
+				85E217BB1DFE7F7D0003BFA2 /* CRC16.h */,
+				85E217BA1DFE7F7D0003BFA2 /* CRC16.c */,
+				85E217BC1DFE7F7D0003BFA2 /* ParameterModel.h */,
+				85E217BD1DFE7F7D0003BFA2 /* ParameterModel.m */,
+				853C2E561E00DE9100BA3ED7 /* ParametersList.json */,
+				85E217BE1DFE7F7D0003BFA2 /* ParametersList.h */,
+				85E217BF1DFE7F7D0003BFA2 /* ParametersList.m */,
+			);
+			name = "解析类";
+			sourceTree = "<group>";
+		};
+		85E217B91DFE7F7D0003BFA2 /* GQ3647C */ = {
+			isa = PBXGroup;
+			children = (
+				85D58BCB1E0245EF008CBE59 /* 帧头 */,
+				85D58BCC1E024601008CBE59 /* 帧体 */,
+				85D58BCD1E024620008CBE59 /* 解析类 */,
+			);
+			path = GQ3647C;
+			sourceTree = "<group>";
+		};
+		A0EF459C4CDF654195BF2D60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				836CD971B064AD319F7889C9 /* Pods-FSJ_HaiNan.debug.xcconfig */,
+				B585B7B567AB06E728FD3C99 /* Pods-FSJ_HaiNan.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 853A23231DF8F23100734A0C /* Build configuration list for PBXNativeTarget "FSJ_HaiNan" */;
 			buildPhases = (
+				5447CBCC31EB2C98D8A26DC6 /* [CP] Check Pods Manifest.lock */,
 				853A23081DF8F23100734A0C /* Sources */,
 				853A23091DF8F23100734A0C /* Frameworks */,
 				853A230A1DF8F23100734A0C /* Resources */,
+				14A7235594BF2808F107E806 /* [CP] Embed Pods Frameworks */,
+				22EB33277317A86BDC608B94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,21 +328,86 @@
 			buildActionMask = 2147483647;
 			files = (
 				853A231F1DF8F23100734A0C /* LaunchScreen.storyboard in Resources */,
+				853C2E551E00DD4C00BA3ED7 /* txxyDTV50.xml in Resources */,
 				853A231C1DF8F23100734A0C /* Assets.xcassets in Resources */,
 				853A231A1DF8F23100734A0C /* Main.storyboard in Resources */,
+				853C2E571E00DE9100BA3ED7 /* ParametersList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14A7235594BF2808F107E806 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FSJ_HaiNan/Pods-FSJ_HaiNan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22EB33277317A86BDC608B94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FSJ_HaiNan/Pods-FSJ_HaiNan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5447CBCC31EB2C98D8A26DC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		853A23081DF8F23100734A0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E217CB1DFE7F7D0003BFA2 /* ParametersList.m in Sources */,
+				85E217CF1DFE7F7D0003BFA2 /* SendFrameHead.m in Sources */,
+				85E217CD1DFE7F7D0003BFA2 /* ReadFrameBody.m in Sources */,
+				85D58BD01E02473B008CBE59 /* SearchFrameBody.m in Sources */,
 				853A23171DF8F23100734A0C /* ViewController.m in Sources */,
+				851EDBE21DF9467F0049E529 /* BaseViewController.m in Sources */,
+				853A235A1DF90A6B00734A0C /* DOPDropDownMenu.m in Sources */,
+				853A234A1DF8F89F00734A0C /* AsyncUdpSocket.m in Sources */,
 				853A23141DF8F23100734A0C /* AppDelegate.m in Sources */,
+				85E217CA1DFE7F7D0003BFA2 /* ParameterModel.m in Sources */,
+				853A234C1DF8F89F00734A0C /* FSJUdpSocketTool.m in Sources */,
+				85E217D01DFE7F7D0003BFA2 /* WriteFrameBody.m in Sources */,
+				85E217A01DFE3A4E0003BFA2 /* FSJTcpSocketTool.m in Sources */,
+				85E217CE1DFE7F7D0003BFA2 /* ReciveFrameHead.m in Sources */,
 				853A23111DF8F23100734A0C /* main.m in Sources */,
+				853A23491DF8F89F00734A0C /* AsyncSocket.m in Sources */,
+				85E217C91DFE7F7D0003BFA2 /* CRC16.c in Sources */,
+				851EDBE61DF9544A0049E529 /* NSString+NSStringHexToBytes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +461,12 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -253,7 +512,11 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -270,8 +533,14 @@
 		};
 		853A23241DF8F23100734A0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 836CD971B064AD319F7889C9 /* Pods-FSJ_HaiNan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/Monstar/Desktop/FSJ_HaiNan/FSJ_HaiNan/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = FSJ_HaiNan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FSJ-HaiNan.www.FSJ-HaiNan";
@@ -281,8 +550,14 @@
 		};
 		853A23251DF8F23100734A0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B585B7B567AB06E728FD3C99 /* Pods-FSJ_HaiNan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/Monstar/Desktop/FSJ_HaiNan/FSJ_HaiNan/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = FSJ_HaiNan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FSJ-HaiNan.www.FSJ-HaiNan";
@@ -309,6 +584,7 @@
 				853A23251DF8F23100734A0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

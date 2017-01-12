@@ -20,7 +20,7 @@
     return self;
 
 }
--(NSData *)description{
+-(NSData *)createHeadData{
     NSString * string = [NSString stringWithFormat:@"%@%@%@",self.head,self.fsjAddressCode,self.extendCode];
    
     NSData *frameHeaddata = [string hexToBytes];

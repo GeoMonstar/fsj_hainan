@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, ParameterStatus){
 
 //@property (nonatomic, copy)     NSString  *parameterLength;
 
-@property (nonatomic, assign)   ParameterType parameterType;
+//@property (nonatomic, assign)   ParameterType parameterType;
 
 @property (nonatomic, assign)   ParameterStatus parameterStatus;
 
@@ -72,16 +72,30 @@ typedef NS_ENUM(NSInteger, ParameterStatus){
 
 + (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-
-//读
+/**
+ *  读 返回解析字段
+ *
+ *  @param model 数据模型
+ */
 - (NSString *)getResult:(ParameterModel *)model;
 
-//写
+/**
+ *  写 生成串口命令
+ *
+ *  @param model 数据模型
+ */
 - (NSString *)createResult:(ParameterModel *)model;
-
-//解析model
+/**
+ *  解析 帧头
+ *
+ *  @param model 数据模型
+ */
 - (NSString *)getHead:(ParameterModel *)model;
 
-
+/**
+ *  根据 参数序号读取参数模型
+ *
+ *  @param parno 参数序号
+ */
 + (ParameterModel *)getModelByparno:(NSString *)parno;
 @end

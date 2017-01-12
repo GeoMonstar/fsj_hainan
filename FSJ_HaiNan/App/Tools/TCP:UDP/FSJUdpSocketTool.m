@@ -23,22 +23,22 @@
 
 #define LOCAL_BIND      9000
 #define TIME_OUT        -1
+#define SendTag         100
+#define ReceiveTag      200
 
-
+static FSJUdpSocketTool *shareInstance = nil;
 @implementation FSJUdpSocketTool
 
 + (FSJUdpSocketTool *)sharedInstance{
-    
-    static FSJUdpSocketTool *shareInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shareInstance = [[self alloc]init];
+        shareInstance = [[super allocWithZone:NULL] init];
     });
     return shareInstance;
 }
-/*
- *  socket 连接
- */
++ (instancetype)allocWithZone:(struct _NSZone *)zone{
+    return [FSJUdpSocketTool sharedInstance];
+}
 - (void)socketConnectHost{
     //sender
     NSError *error = nil;
@@ -48,29 +48,22 @@
         VVDLog(@"sendSocket enableBroadcast error : %@", error);
     }
     [self.udpSocket bindToPort:LOCAL_BIND error:&error];
-    [self.udpSocket receiveWithTimeout:TIME_OUT tag:200];
+    [self.udpSocket receiveWithTimeout:TIME_OUT tag:ReceiveTag];
     if (error) {
         VVDLog(@"sendSocket bindToPort error : %@", error);
     }
-
     
 }
-/*
- *  断开socket连接
- */
 - (void)cutOffSocket{
-
-   
     [self.udpSocket close];
 }
-
-- (void)sendMsg:(NSData *) data{
+- (void)udpSendData:(NSData *) data{
  
-    BOOL result = [self.udpSocket sendData:data toHost:self.hostAddress port:self.serverPort withTimeout:TIME_OUT tag:100];
+    BOOL result = [self.udpSocket sendData:data toHost:self.hostAddress port:self.serverPort withTimeout:TIME_OUT tag:SendTag];
     VVDLog(@"send data to %@:%d -- %@ ",self.hostAddress,self.serverPort,data);
-   
+
     if (!result) {
-        //VVDLog(@"send failed");
+        VVDLog(@"upd 发送失败");
     }
     else{
         //VVDLog(@"send succeed");
@@ -82,7 +75,7 @@
 - (void) onUdpSocket:(AsyncUdpSocket *)sock didSendDataWithTag:(long)tag
 {
     // 当前tag这个数据包发送完成
-    if (tag == 100) {
+    if (tag == SendTag) {
         // 证明tag 100
         //VVDLog(@"tag 100 packet send finished");
     }
@@ -90,7 +83,8 @@
 
 - (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
 {
-    VVDLog(@"didNotSendDataWithTag = %@", error);
+    
+    VVDLog(@"upd 发送失败 =  %ld %@", tag,error);
 }
 
 - (BOOL) onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port
@@ -99,23 +93,21 @@
     // tag == 200
     // host从哪里来数据 ip
     // port 对象的端口
-    
-    
-    if (tag == 200) {
+    if (tag == ReceiveTag) {
         //NSString *sData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
        
-        [sock receiveWithTimeout:TIME_OUT tag:tag];
+        [sock receiveWithTimeout:TIME_OUT tag:ReceiveTag];
         if (self.reciveDataBlock) {
             self.reciveDataBlock(data,host,port);
         }
         // 此处处理接受到的数据
-        
     }
     return YES;
 }
 
 - (void)onUdpSocket:(AsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error
 {
-    VVDLog(@"didNotReceiveDataWithTag = %@", error);
+    VVDLog(@"upd 接收失败 =  %ld %@", tag,error);
+
 }
 @end

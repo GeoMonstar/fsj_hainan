@@ -18,16 +18,14 @@ typedef union { float f; uint32_t i; } FloatInt;
 }
 + (ParameterModel *)getModelByparno:(NSString *)parno{
     NSMutableArray *mutArr = @[].mutableCopy;
-    NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"ParametersList" ofType:@"json"];
+    NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"ParametersJSON" ofType:@"json"];
     NSData * jsonData = [[NSData alloc]initWithContentsOfFile:jsonPath];
     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
     NSArray *jsonArr = [[[jsonDic objectForKey:@"tables"]objectForKey:@"parameter"]objectForKey:@"item"];
-    
     for (NSDictionary *dic in jsonArr) {
         ParameterModel *model = [ParameterModel initWithDictionary:dic];
         [mutArr addObject:model];
     }
-    
     for (ParameterModel *model  in mutArr) {
         if ([model.parno isEqualToString:parno]) {
             return model;
@@ -57,14 +55,24 @@ typedef union { float f; uint32_t i; } FloatInt;
 }
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key{
     
-    
 }
-
-#pragma mark 方法
-//写
+#pragma mark   --写
 - (NSString *)createResult:(ParameterModel *)model{
     NSString *str =[NSString stringWithFormat:@"%@生成错误",model.name];
     NSMutableString *mutstr = [NSMutableString string];
+    //    V_HEX	16进制数据	可变根据len参数定义	- 
+    if ([model.type isEqualToString:@"V_HEX"]) {
+        
+        for ( int i = 0; i < model.parameterValue.length; i ++) {
+            NSString *tempstr =  [model.parameterValue substringWithRange:NSMakeRange(i, 1)];
+            if ([tempstr isEqualToString:@" "]) {
+                
+            }else{
+                 [mutstr appendString:tempstr];
+            }
+        }
+        return mutstr;
+    }
     //    V_TIMEARRAY	时间表类型	6*n字节	- 时分秒 12:10:12
     if ([model.type isEqualToString:@"V_TIMEARRAY"]) {
         
@@ -73,9 +81,8 @@ typedef union { float f; uint32_t i; } FloatInt;
             NSInteger time;
             for ( NSInteger j=0 ; j < arrStr.length/2 ; j++) {
                 NSString *tempstr =  [arrStr substringWithRange:NSMakeRange(j*2, 2)];
-                                //16进制字符串转10进制数字转ascii
+                //获取时间
                 time  += [tempstr integerValue] * pow(60, (2-j));
-               
            }
             [mutstr appendString:[[NSString stringWithFormat:@"%ld",time] ToHex3]];
         }
@@ -101,7 +108,7 @@ typedef union { float f; uint32_t i; } FloatInt;
         long  time= [localeDate timeIntervalSince1970];
         return [[NSString stringWithFormat:@"%ld",time]ToHex8];
     }
-        //    V_ENUM_BIT	枚举位	可变根据len参数定义	枚举位的定义
+    //    V_ENUM_BIT	枚举位	可变根据len参数定义	枚举位的定义
     if ([model.type isEqualToString:@"V_ENUM_BIT"]){
         
         //暂定直接value为 各枚举的和 10进制
@@ -150,7 +157,6 @@ typedef union { float f; uint32_t i; } FloatInt;
     if ([model.type isEqualToString:@"V_USHORT"]) {
         return  [model.parameterValue ToHex2];
     }
-
     //    V_STRING	字符串类型	根据len参数定义	-
     if ([model.type isEqualToString:@"V_STRING"] && [model.detail isEqualToString:@"-"]) {
         for ( int i = 0; i < [model.len integerValue]; i ++) {
@@ -176,7 +182,7 @@ typedef union { float f; uint32_t i; } FloatInt;
     }
         return str;
 }
-//读
+#pragma mark   --读
 - (NSString *)getResult:(ParameterModel *)model{
     NSString *str =[NSString stringWithFormat:@"%@解析错误",model.name];
     NSMutableString *mutstr = [NSMutableString string];
@@ -236,7 +242,7 @@ typedef union { float f; uint32_t i; } FloatInt;
     if ([model.type isEqualToString:@"V_FLOAT"]) {
         for ( NSInteger i = model.parameterValue.length/2-1; i >= 0; i --) {
             NSString *tempstr =  [model.parameterValue substringWithRange:NSMakeRange(i*2, 2)];
-            //16进制字符串转10进制数字转ascii
+            
             [mutstr appendString:tempstr];
         }
         FloatInt fl;
@@ -250,18 +256,17 @@ typedef union { float f; uint32_t i; } FloatInt;
         {
             VVDLog(@"float转换错误");
         }
-        
     }
-//    V_ENUM_BIT	枚举位	可变根据len参数定义	枚举位的定义，使用;枚举位定义 90 = 144 = 2^4+2^7 
+//    V_ENUM_BIT	枚举位	可变根据len参数定义	枚举位的定义，根据返回16进制转2进制确定每个的参数值
     if ([model.type isEqualToString:@"V_ENUM_BIT"]) {
         //暂定
-        int num = [model.len integerValue] == 1?8:16;
+        long result = strtoul([model.parameterValue UTF8String],0,16);
+        int num = [model.len intValue]*8;
         NSMutableArray *arr = @[].mutableCopy;
         for (int i = 0; i< num; i++) {
             [arr addObject:[NSString stringWithFormat:@"%d",1<<i]];
         }
         
-        long result = strtoul([model.parameterValue UTF8String],0,16);
         for (int i = 1; i < 1<<num; i++) {
             int sum = 0;
             NSMutableArray *mutArr = @[].mutableCopy;
@@ -467,7 +472,6 @@ typedef union { float f; uint32_t i; } FloatInt;
             break;
         }
     }
-    
     return str;
 }
 MJExtensionCodingImplementation

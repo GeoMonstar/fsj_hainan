@@ -1,0 +1,1713 @@
+
+
+/********   通信协议上的参数表  ********/
+{
+    "tables": {
+        "-sblx": "1050",
+        "-name": "发射机通信协议",
+        "parameter": {
+            "item": [
+/********   设备基础信息  ********/
+                     {
+                     "-parno": "0x0001",
+                     "-name": "发射台编号",
+                     "-type": "V_STRING",
+                     "-len": "17",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0002",
+                     "-name": "设备名称",
+                     "-type": "V_STRING",
+                     "-len": "32",
+                     "-deci": "0",
+                     "-detail": "字符串"
+                     },
+                     {
+                     "-parno": "0x0003",
+                     "-name": "设备硬件版本号",
+                     "-type": "V_USHORT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0004",
+                     "-name": "设备软件版本号",
+                     "-type": "V_USHORT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0005",
+                     "-name": "生产厂家",
+                     "-type": "V_STRING",
+                     "-len": "32",
+                     "-deci": "0",
+                     "-detail": "字符串"
+                     },
+                     {
+                     "-parno": "0x0006",
+                     "-name": "设备型号",
+                     "-type": "V_STRING",
+                     "-len": "32",
+                     "-deci": "0",
+                     "-detail": "字符串"
+                     },
+                     {
+                     "-parno": "0x0007",
+                     "-name": "产品序列号",
+                     "-type": "V_STRING",
+                     "-len": "16",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0008",
+                     "-name": "设备类型码",
+                     "-type": "V_USHORT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x000A",
+                     "-name": "发射机设备功率等级",
+                     "-type": "V_UINT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x000B",
+                     "-name": "设备时间",
+                     "-type": "V_UNIXTIME",
+                     "-len": "8",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x000C",
+                     "-name": "主控板CPU序列号",
+                     "-type": "V_STRING",
+                     "-len": "32",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0010",
+                     "-name": "设备纬度指示",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,北纬;1,南纬"
+                     },
+                     {
+                     "-parno": "0x0011",
+                     "-name": "设备纬度",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0012",
+                     "-name": "设备经度指示",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,东经;1,西经"
+                     },
+                     {
+                     "-parno": "0x0013",
+                     "-name": "设备经度",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0014",
+                     "-name": "设备高度",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+/********   设备通信接口  ********/
+                     
+                     {
+                     "-parno": "0x0020",
+                     "-name": "设备地址",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0021",
+                     "-name": "mac地址",
+                     "-type": "V_HEX",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0022",
+                     "-name": "启用DHCP",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0——禁用。非0——启用"
+                     },
+                     {
+                     "-parno": "0x0023",
+                     "-name": "设备IP",
+                     "-type": "V_UINT_IP",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0024",
+                     "-name": "子网掩码",
+                     "-type": "V_UINT_IP",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0025",
+                     "-name": "默认网关",
+                     "-type": "V_UINT_IP",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0026",
+                     "-name": "本地管理-IP",
+                     "-type": "V_UINT_IP",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0042",
+                     "-name": "心跳包间隔",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "秒"
+                     },
+/********   设备结构  ********/
+                     {
+                     "-parno": "0x00C0",
+                     "-name": "激励器数量",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C1",
+                     "-name": "功放数量",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C2",
+                     "-name": "直流稳压电源数量",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C5",
+                     "-name": "发射机数量",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C6",
+                     "-name": "激励器输入通道数",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C7",
+                     "-name": "激励器输出通道数",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+/********   设备整机控制  ********/
+                     {
+                     "-parno": "0x0101",
+                     "-name": "开机",
+                     "-type": "V_STRING",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "default:ON"
+                     },
+                     {
+                     "-parno": "0x0102",
+                     "-name": "关机",
+                     "-type": "V_STRING",
+                     "-len": "3",
+                     "-deci": "0",
+                     "-detail": "default:OFF"
+                     },
+                     {
+                     "-parno": "0x0128",
+                     "-name": "整机控制位",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,整机自动模式;1,发射机整机开关状态"
+                     },
+                     {
+                     "-parno": "0x0160",
+                     "-name": "星期天",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0161",
+                     "-name": "星期一",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0162",
+                     "-name": "星期二",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0163",
+                     "-name": "星期三",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0164",
+                     "-name": "星期四",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0165",
+                     "-name": "星期五",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0166",
+                     "-name": "星期六",
+                     "-type": "V_TIMEARRAY",
+                     "-len": "6",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0167",
+                     "-name": "每天最大开关机条数",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0168",
+                     "-name": "定时开关机启用",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0x00,禁用;0x01,启用"
+                     },
+/********   发射机状态数据和参数设置  ********/
+                     {
+                     "-parno": "0x0200",
+                     "-name": "连续读参数",
+                     "-type": "V_UINT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x0201",
+                     "-name": "发射机实测输出功率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x0202",
+                     "-name": "发射机实测反射功率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x0203",
+                     "-name": "发射机功放电压",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "V"
+                     },
+                     {
+                     "-parno": "0x0204",
+                     "-name": "发射机功放电流",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "A"
+                     },
+                     {
+                     "-parno": "0x0205",
+                     "-name": "发射机驻波比",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0207",
+                     "-name": "环境温度",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "℃"
+                     },
+                     {
+                     "-parno": "0x0210",
+                     "-name": "整机工作状态",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正在控制动作响应;1,功率小环;2,功率自动;3,定时开关机;4,正式播出;5,远程可控;6,正在发声报警;7,输出停播"
+                     },
+                     {
+                     "-parno": "0x0212",
+                     "-name": "整机保护状态",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,电流异常保护;1,温度异常保护;2,电流降功率保护;3,电流降功率保护;4,温度降功率保护;5,反射降功率保护;6,输入射频信号异常;7,输出异常保护"
+                     },
+                     {
+                     "-parno": "0x0216",
+                     "-name": "与发射机模块通信状态",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,通信正常;1,通信中断"
+                     },
+                     {
+                     "-parno": "0x0221",
+                     "-name": "设定输出功率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x0222",
+                     "-name": "输入功率阈值低",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "dBm"
+                     },
+                     {
+                     "-parno": "0x0223",
+                     "-name": "输入功率阈值高",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "dBm"
+                     },
+                     {
+                     "-parno": "0x0224",
+                     "-name": "反射功率阈值上限",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x022A",
+                     "-name": "温度阈值HH",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "℃"
+                     },
+                     {
+                     "-parno": "0x023C",
+                     "-name": "射频输入校正值",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x023E",
+                     "-name": "射频输出校正值",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x023F",
+                     "-name": "射频反射校正值",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0250",
+                     "-name": "发射机CPU序列号",
+                     "-type": "V_STRING",
+                     "-len": "32",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0300",
+                     "-name": "ACG",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0301",
+                     "-name": "前置电流",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0302",
+                     "-name": "前置电压",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0303",
+                     "-name": "过激励电压",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0x0400",
+                     "-name": "报警总状态位",
+                     "-type": "V_ENUM",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "0,报警;1,正常"
+                     },
+                     {
+                     "-parno": "0x0401",
+                     "-name": "报警总状态位1",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "0,输入功率;1,AGC电压;2,前置功率;3,推动功率;4,输出功率;5,反射功率;6,VSWR;7,前置电流;8,推动电流;9,功放电流;10,工作电流;11,环境温度;12,工作温度;13,电源温度;14,风机1;15,风机2;16,AC/DC1;17,AC/DC2;18,过激励电压;"
+                     },
+/********   功放模块  ********/
+                     {
+                     "-parno": "0x1001",
+                     "-name": "功放输出功率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0x1002",
+                     "-name": "功放输入功率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "W(dBm)"
+                     },
+                     {
+                     "-parno": "0x1003",
+                     "-name": "功放温度",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "℃"
+                     },
+                     {
+                     "-parno": "0x1004",
+                     "-name": "功放状态",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,过载;1,过激励;2,过热"
+                     },
+                     {
+                     "-parno": "0x101E",
+                     "-name": "推动管工作电压",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "V"
+                     },
+                     {
+                     "-parno": "0x101F",
+                     "-name": "推动管工作电流",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "A"
+                     },
+                     {
+                     "-parno": "0x1020",
+                     "-name": "功率管工作电压",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "V"
+                     },
+                     {
+                     "-parno": "0x1021",
+                     "-name": "功率管1电流",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "A"
+                     },
+                     {
+                     "-parno": "0x1022",
+                     "-name": "功率管2电流",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "A"
+                     },
+                     {
+                     "-parno": "0x103F",
+                     "-name": "风扇转速1",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "RPM"
+                     },
+                     {
+                     "-parno": "0x1040",
+                     "-name": "风扇转速2",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "RPM"
+                     },
+                     {
+                     "-parno": "0x1041",
+                     "-name": "风扇转速3",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "RPM"
+                     },
+                     {
+                     "-parno": "0x1042",
+                     "-name": "风扇转速4",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "RPM"
+                     },
+/********   电源模块  ********/
+                     {
+                     "-parno": "0x8001",
+                     "-name": "电源直流输出电压",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "V"
+                     },
+                     {
+                     "-parno": "0x8002",
+                     "-name": "电源直流输出电流",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "V"
+                     },
+/********   激励模块（器）  ********/
+                     {
+                     "-parno": "0xB000",
+                     "-name": "激励器CPU序列号",
+                     "-type": "V_STRING",
+                     "-len": "32",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB001",
+                     "-name": "激励器类型",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "1,DVB-T2激励器;2,DTMB激励器;3,DVB-C激励器;4,DVB-S激励器"
+                     },
+                     {
+                     "-parno": "0xB002",
+                     "-name": "单频网地址",
+                     "-type": "V_USHORT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "W"
+                     },
+                     {
+                     "-parno": "0xB004",
+                     "-name": "码流输入选择",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,RF-1;1,RF-2;2,RF-3;3,RF-4"
+                     },
+                     {
+                     "-parno": "0xB005",
+                     "-name": "激励器状态（地面数字电视广播）",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "3",
+                     "-deci": "0",
+                     "-detail": "0,射频本振是否失锁;1,输入码流是否故障;2,是否无法解析SIP;3,1pps是否丢失;4,系统时钟是否失锁;5,GPS模块状态;6,GPS是否锁定;7,过温状态;23,激励器状态"
+                     },
+                     {
+                     "-parno": "0xB008",
+                     "-name": "激励器解调RF1口输入状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,未锁定;1,锁定;2,使用中"
+                     },
+                     {
+                     "-parno": "0xB009",
+                     "-name": "激励器解调RF1口输入速率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB00A",
+                     "-name": "激励器解调RF1口输入SNR",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB00B",
+                     "-name": "解调RF1解调频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB00C",
+                     "-name": "解调RF1 IQ倒置",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,倒置"
+                     },
+                     {
+                     "-parno": "0xB010",
+                     "-name": "激励器解调RF2口输入状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,未锁定;1,锁定;2,使用中"
+                     },
+                     {
+                     "-parno": "0xB011",
+                     "-name": "激励器解调RF2口输入速率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB012",
+                     "-name": "激励器解调RF2口输入SNR",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "us"
+                     },
+                     {
+                     "-parno": "0xB013",
+                     "-name": "解调RF2解调频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB014",
+                     "-name": "解调RF2 IQ倒置",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,倒置"
+                     },
+                     {
+                     "-parno": "0xB018",
+                     "-name": "激励器解调RF3口输入状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,未锁定;1,锁定;2,使用中"
+                     },
+                     {
+                     "-parno": "0xB019",
+                     "-name": "激励器解调RF3口输入速率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB01A",
+                     "-name": "激励器解调RF3口输入SNR",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB01B",
+                     "-name": "解调RF3解调频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB01C",
+                     "-name": "解调RF3解调频率",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,倒置"
+                     },
+                     {
+                     "-parno": "0xB020",
+                     "-name": "激励器解调RF4口输入状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,未锁定;1,锁定;2,使用中"
+                     },
+                     {
+                     "-parno": "0xB021",
+                     "-name": "激励器解调RF4口输入速率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB022",
+                     "-name": "激励器解调RF4口输入SNR",
+                     "-type": "V_FLOAT",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB023",
+                     "-name": "解调RF4解调频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB024",
+                     "-name": "解调RF4 IQ倒置",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,倒置"
+                     },
+                     {
+                     "-parno": "0xB030",
+                     "-name": "当前模式最大输入码率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB031",
+                     "-name": "激励器射频输出总开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关闭;1,打开"
+                     },
+                     {
+                     "-parno": "0xB032",
+                     "-name": "激励器射频输出总衰减",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB033",
+                     "-name": "输入RF1单频网适配器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB034",
+                     "-name": "输入RF2单频网适配器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB035",
+                     "-name": "输入RF3单频网适配器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB036",
+                     "-name": "输入RF4单频网适配器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     //激励器输出通道1数据
+                     {
+                     "-parno": "0xB051",
+                     "-name": "通道1输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB052",
+                     "-name": "通道1输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB053",
+                     "-name": "通道1输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB054",
+                     "-name": "通道1输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB055",
+                     "-name": "通道1输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB056",
+                     "-name": "通道1输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB057",
+                     "-name": "通道1输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB058",
+                     "-name": "通道1输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB059",
+                     "-name": "通道1单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB05A",
+                     "-name": "通道1单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB05B",
+                     "-name": "通道1输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB05C",
+                     "-name": "通道1输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道2数据
+                     {
+                     "-parno": "0xB071",
+                     "-name": "通道2输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB072",
+                     "-name": "通道2输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB073",
+                     "-name": "通道2输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB074",
+                     "-name": "通道2输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB075",
+                     "-name": "通道2输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB076",
+                     "-name": "通道2输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB077",
+                     "-name": "通道2输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB078",
+                     "-name": "通道2输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB079",
+                     "-name": "通道2单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB07A",
+                     "-name": "通道2单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB07B",
+                     "-name": "通道2输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB07C",
+                     "-name": "通道2输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道3数据
+                     {
+                     "-parno": "0xB091",
+                     "-name": "通道3输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB092",
+                     "-name": "通道3输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB093",
+                     "-name": "通道3输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB094",
+                     "-name": "通道3输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB095",
+                     "-name": "通道3输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB096",
+                     "-name": "通道3输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB097",
+                     "-name": "通道3输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB098",
+                     "-name": "通道3输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB099",
+                     "-name": "通道3单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB09A",
+                     "-name": "通道3单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB09B",
+                     "-name": "通道3输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB09C",
+                     "-name": "通道3输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道4数据
+                     {
+                     "-parno": "0xB0B1",
+                     "-name": "通道4输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0B2",
+                     "-name": "通道4输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB0B3",
+                     "-name": "通道4输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB0B4",
+                     "-name": "通道4输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB0B5",
+                     "-name": "通道4输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB0B6",
+                     "-name": "通道4输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB0B7",
+                     "-name": "通道4输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB0B8",
+                     "-name": "通道4输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB0B9",
+                     "-name": "通道4单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB0BA",
+                     "-name": "通道4单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0BB",
+                     "-name": "通道4输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0BC",
+                     "-name": "通道4输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道5数据
+                     {
+                     "-parno": "0xB0D1",
+                     "-name": "通道5输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0D2",
+                     "-name": "通道5输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB0D3",
+                     "-name": "通道5输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB0D4",
+                     "-name": "通道5输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB0D5",
+                     "-name": "通道5输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB0D6",
+                     "-name": "通道5输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB0D7",
+                     "-name": "通道5输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB0D8",
+                     "-name": "通道5输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB0D9",
+                     "-name": "通道5单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB0DA",
+                     "-name": "通道5单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0DB",
+                     "-name": "通道5输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0DC",
+                     "-name": "通道5输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道6数据
+                     {
+                     "-parno": "0xB0F1",
+                     "-name": "通道6输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0F2",
+                     "-name": "通道6输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB0F3",
+                     "-name": "通道6输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB0F4",
+                     "-name": "通道6输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB0F5",
+                     "-name": "通道6输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB0F6",
+                     "-name": "通道6输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB0F7",
+                     "-name": "通道6输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB0F8",
+                     "-name": "通道6输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB0F9",
+                     "-name": "通道6单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB0FA",
+                     "-name": "通道6单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0FB",
+                     "-name": "通道6输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB0FC",
+                     "-name": "通道6输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道7数据
+                     {
+                     "-parno": "0xB111",
+                     "-name": "通道7输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB112",
+                     "-name": "通道7输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB113",
+                     "-name": "通道7输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB114",
+                     "-name": "通道7输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB115",
+                     "-name": "通道7输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB116",
+                     "-name": "通道7输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB117",
+                     "-name": "通道7输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB118",
+                     "-name": "通道7输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB119",
+                     "-name": "通道7单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB11A",
+                     "-name": "通道7单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB11B",
+                     "-name": "通道7输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB11C",
+                     "-name": "通道7输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     //激励器输出通道8数据
+                     {
+                     "-parno": "0xB131",
+                     "-name": "通道8输出频率",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB132",
+                     "-name": "通道8输出组网方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多频道直通模式;1,多频网复用模式;2,单频网地面模式;3,单频网卫星模式"
+                     },
+                     {
+                     "-parno": "0xB133",
+                     "-name": "通道8输出PN相位",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,旋转;1,固定"
+                     },
+                     {
+                     "-parno": "0xB134",
+                     "-name": "通道8输出载波方式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,多载波;1,单载波"
+                     },
+                     {
+                     "-parno": "0xB135",
+                     "-name": "通道8输出LDPC&QAM",
+                     "-type": "V_ENUM_BIT",
+                     "-len": "2",
+                     "-deci": "0",
+                     "-detail": "1,0.4&4QAM;2,0.6&4QAM;3,0.8&4QAM;7,0.8&4QAMNR;8,0.4&16QAM;10,0.6&16QAM;11,0.8&16QAM;12,0.8&32QAM;13,0.4&64QAM;14,0.6&64QAM;15,0.8&64QAM"
+                     },
+                     {
+                     "-parno": "0xB136",
+                     "-name": "通道8输出帧头模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,420;1,595;2,945"
+                     },
+                     {
+                     "-parno": "0xB137",
+                     "-name": "通道8输出交织模式",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,240;1,720"
+                     },
+                     {
+                     "-parno": "0xB138",
+                     "-name": "通道8输出导频开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB139",
+                     "-name": "通道8单音开关",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,关;1,开"
+                     },
+                     {
+                     "-parno": "0xB13A",
+                     "-name": "通道8单频网的激励器延时",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB13B",
+                     "-name": "通道8输出电平衰减调节",
+                     "-type": "V_FLOAT",
+                     "-len": "4",
+                     "-deci": "0",
+                     "-detail": "-"
+                     },
+                     {
+                     "-parno": "0xB13C",
+                     "-name": "通道8输出码流状态",
+                     "-type": "V_ENUM",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "0,正常;1,异常"
+                     },
+                     
+
+
+            ]
+        }
+    }
+}

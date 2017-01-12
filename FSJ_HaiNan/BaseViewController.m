@@ -17,13 +17,14 @@
 #import "EGOCache.h"
 #import "ParametersList.h"
 #define kParametersKey @"test"
-
+typedef union { float f; uint32_t i; } FloatInt;
 @interface BaseViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>{
-
+    NSArray *sortArr;
     NSString *fsjAddr;
     NSString *zhantaiCode;
     NSString *extendCode;
     NSData *adata;
+    FSJUdpSocketTool *udptool ;
 }
 @property (weak, nonatomic) IBOutlet UITextField *hostAddrTF;
 @property (weak, nonatomic) IBOutlet UITextField *portTF;
@@ -48,14 +49,15 @@
     zhantaiCode = [self chaneToHex:zhantaiStr and:17 and:NO];
     extendCode = [self chaneToHex:extendCode and:2 and:YES];
 }
+
 - (void)tcpTest{
 
     //Byte byte[] ={0x01 ,0x5A ,0x00 ,0x00 ,0x21 ,0xCB};
     Byte byte[] = {0x26,0x00, 0x00 , 0x00 , 0x00 , 0x00 , 0x00 ,0x00 ,0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x00 , 0x01 , 0x03 , 0x02 , 0x00 , 0x01 , 0x00 , 0x45 , 0xE2};
     //NSString *orderStr = @"26 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 5A 00 00 21 CB";
-    [FSJTcpSocketTool sharedInstance].socketHost = @"192.168.10.203";
-    [FSJTcpSocketTool sharedInstance].socketPort    = 6000;
-    [[FSJTcpSocketTool sharedInstance]socketConHost];
+//    [FSJTcpSocketTool sharedInstance].socketHost = @"192.168.10.203";
+//    [FSJTcpSocketTool sharedInstance].socketPort    = 6000;
+//    [[FSJTcpSocketTool sharedInstance]socketConHost];
     adata = [[NSData alloc] initWithBytes:byte length:sizeof(byte)/sizeof(byte[0])];
    
 }
@@ -73,15 +75,12 @@
     [[EGOCache globalCache]setData:data forKey:kParametersKey];
     NSData *data2 = [[EGOCache globalCache]dataForKey:kParametersKey];
     NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data2];
-  
+    
     for (ParameterModel *model in arr) {
-        
         if ([model.parno isEqualToString:BaseInfo0100]) {
            // VVDLog(@" model== %@ %@",model.parametername,model.parameterLength);
         }
-        
     }
-    
 }
 
 -(NSDate *)changeSpToTime:(NSString*)spString
@@ -91,7 +90,6 @@
     NSInteger interval = [zone secondsFromGMTForDate:confromTimesp];
     //时差处理
     NSDate *localeDate = [confromTimesp  dateByAddingTimeInterval: -interval];
-    
     NSDateFormatter *dateFormat=[[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
     NSString* string=[dateFormat stringFromDate:localeDate];
@@ -99,17 +97,14 @@
     return confromTimesp;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [FSJUdpSocketTool sharedInstance].hostAddress = self.hostAddrTF.text;
-    [FSJUdpSocketTool sharedInstance].serverPort  = [self.portTF.text integerValue];
+    udptool = [[FSJUdpSocketTool alloc]init];
     
+    udptool.hostAddress = self.hostAddrTF.text;
+    udptool.serverPort  = [self.portTF.text integerValue];
+    self.navigationItem.hidesBackButton = YES;
     [self tcpTest];
-  
-    
-    
-    
      self.chosePickView.delegate   = self;
      self.chosePickView.dataSource = self;
      zhantaiCode = [self chaneToHex:@"" and:17 and:NO];
@@ -159,11 +154,9 @@
                      [mutiStr insertString:@"00" atIndex:0];
                 }
                 //return mutiStr;
-                
             }
             //十进制转16进制字符串 默认一位
             else{
-                
                 if (i < 1) {
                     result = [string ToHex];//有问题
                     [mutiStr insertString:result atIndex:0];
@@ -281,22 +274,18 @@
     for (UITextField *TF in self.view.subviews) {
         [TF endEditing:YES];
     }
-     [[FSJUdpSocketTool sharedInstance] socketConnectHost];
+     [udptool socketConnectHost];
     SendFrameHead *head = [[SendFrameHead alloc]initWithHead:@"26" FsjAddressCode:zhantaiCode ExtendCode:extendCode];
-    NSData *Data =  [head description];
-    
+    NSData *Data =  [head createHeadData];
     
     ViewController *vc = [[ViewController alloc]init];
     vc.headData = Data;
     vc.ShebeiIP = fsjAddr;
-    
-//     [[FSJTcpSocketTool sharedInstance]tcpSendData:adata];
-//    [FSJTcpSocketTool sharedInstance].reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
-//        NSLog(@"receive data from %@ %d data == %@",host,port,data);
-//    };
-    
-    
-    
+    [[FSJTcpSocketTool sharedInstance]tcpSendData:adata];
+    [FSJTcpSocketTool sharedInstance].reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
+        NSLog(@"receive data from %@ %d data == %@",host,port,data);
+    };
+    vc.Udptool = udptool;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

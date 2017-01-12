@@ -16,12 +16,18 @@
                  FunctionCode:(NSString *)functionCode
                  ParameterdicArr:(NSArray *)parameterdicArr;
 
-//写命令
+/**
+ *  生成 写命令
+ */
 - (NSData *)writeData;
 
-
-////响应读 帧体和帧体一起解析
-//- (NSArray *)responsReadData:(NSData *)data andParameterArr:(NSArray *)paramArr;
+/**
+ *  响应写 帧体和帧体一起解析
+ *
+ *  @param data 返回数据
+ *  @return 写错误参数表 0为没错误
+ */
+- (NSArray *)responsWriteData:(NSData *)data;
 
 
 

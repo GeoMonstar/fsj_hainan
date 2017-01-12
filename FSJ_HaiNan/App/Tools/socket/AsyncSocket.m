@@ -1422,7 +1422,7 @@ Failed:
 
 - (BOOL)connectToHost:(NSString*)hostname onPort:(UInt16)port error:(NSError **)errPtr
 {
-    NSLog(@"sss");
+    //NSLog(@"sss");
 	return [self connectToHost:hostname onPort:port withTimeout:-1 error:errPtr];
 }
 

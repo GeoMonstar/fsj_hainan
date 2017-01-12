@@ -32,12 +32,5 @@
 
 
 }
-//-(NSData *)description{
-//    NSString * string = [NSString stringWithFormat:@"%@%@%@%@%@%@%@",self.head,self.fsjAddressCode,self.fsjTypeCode,self.companyCode,self.hardwareVersionCode,self.softwareVersionCode,self.extendCode];
-//    
-//    NSData *frameHeaddata = [string hexToBytes];
-//    VVDLog(@"响应帧头 == %@",frameHeaddata);
-//    return frameHeaddata;
-//}
 
 @end

@@ -389,6 +389,30 @@
                      "-detail": "个"
                      },
                      {
+                     "-parno": "0x00C5",
+                     "-name": "发射机数量",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C6",
+                     "-name": "激励器输入通道数",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
+                     "-parno": "0x00C7",
+                     "-name": "激励器输出通道数",
+                     "-type": "V_UCHAR",
+                     "-len": "1",
+                     "-deci": "0",
+                     "-detail": "个"
+                     },
+                     {
                      "-parno": "0x0101",
                      "-name": "开机",
                      "-type": "V_STRING",

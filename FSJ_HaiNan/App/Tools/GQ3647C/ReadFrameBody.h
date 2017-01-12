@@ -26,15 +26,26 @@
 
 
 - (instancetype)initWithFsjID:(NSString *)fsjID FunctionCode:(NSString *)functionCode ParameterID:(NSArray *)parameterID;
-//生成 读 命令
+/**
+ *  生成 读 命令
+ */
 - (NSData *)readData;
-//响应读 帧体和帧体一起解析
-- (NSArray *)responsReadData:(NSData *)data andParameterArr:(NSArray *)paramArr;
 
-//添加crc16
+/**
+ *  响应 读 帧体和帧体一起解析
+ *
+ *  @param data 返回数据
+ *  @return 解析结果数组
+ */
+- (NSArray *)responsReadData:(NSData *)data;
+
+
+
+
+//  添加 crc16
 - (NSData *)addCRC16StrBaseString:(NSString *)baseString;
-//10进制数字转16
+//  10 进制数字转16
 - (NSString *)ToHex:(uint16_t)tmpid;
-//data转16进制字符串
+//  data 转16进制字符串
 - (NSString *)convertDataToHexStr:(NSData *)data;
 @end

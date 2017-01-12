@@ -34,6 +34,7 @@
     
     return [self addCRC16StrBaseString:string];
 }
+//根据 发射机id 功能码 参数表 生成 crc16
 - (NSData *)addCRC16StrBaseString:(NSString *)baseString{
     NSInteger length = baseString.length/2;
     //string 转 bytes数组
@@ -51,9 +52,7 @@
     NSString *str = [self ToHex:jiaoyan];
     NSString * result = [NSString stringWithFormat:@"%@%@",baseString,str];
     NSData *framedata = [result hexToBytes];
-    
     return framedata;
-
 }
 
 - (NSString *)ToHex:(uint16_t)tmpid
@@ -113,18 +112,16 @@
     return string;
 }
 #pragma mark -- 响应读
-- (NSArray *)responsReadData:(NSData *)data andParameterArr:(NSArray *)paramArr{
+- (NSArray *)responsReadData:(NSData *)data{
     
     
     NSString *str = [self convertDataToHexStr:data];
-    NSLog(@"%ld",str.length);
+    
     if (str.length < 56) {
         VVDLog(@"响应 读 错误");
     }
-    
     NSArray *headArr = [self getHead:str];
-    NSArray *bodyArr = [self getBody:str and:paramArr];
-    
+    NSArray *bodyArr = [self getBody:str];
     NSMutableArray *result = @[].mutableCopy;
     [result addObject:headArr];
     [result addObject:bodyArr];
@@ -132,34 +129,23 @@
     return result;
 }
 //解析帧体 利用参数数组
-- (NSArray *)getBody:(NSString *)str and:(NSArray *)parmArr{
-    NSMutableArray *result = @[].mutableCopy;
-    NSMutableArray *parmMut = @[].mutableCopy;
+- (NSArray *)getBody:(NSString *)str{
+//    NSMutableArray *result = @[].mutableCopy;
+//    NSMutableArray *parmMut = @[].mutableCopy;
     
     
-    
-    //备用字段
     NSString *bodyStr = [str substringFromIndex:56];
-    NSString *crc16Str = [bodyStr substringFromIndex:bodyStr.length-4];
+    
+    
     bodyStr = [bodyStr substringToIndex:bodyStr.length-4];
-    NSString *shebeidizhiStr = [bodyStr substringToIndex:2];
-    NSString *mingliStr = [bodyStr substringWithRange:NSMakeRange(2, 2)];
-    NSString *lengthStr = [bodyStr substringWithRange:NSMakeRange(4, 4)];
+    //备用字段
+//    NSString *crc16Str = [bodyStr substringFromIndex:bodyStr.length-4];
+//    NSString *shebeidizhiStr = [bodyStr substringToIndex:2];
+//    NSString *mingliStr = [bodyStr substringWithRange:NSMakeRange(2, 2)];
+//    
+//    NSString *lengthStr = [bodyStr substringWithRange:NSMakeRange(4, 4)];
     NSString *paramStr = [bodyStr substringFromIndex:8];
     
-//获取参数值
-//    NSInteger tempLen = 6;
-//    for (int i = 0; i < parmMut.count; i ++) {
-//        ParameterModel *model = parmMut[i];
-//        model.parameterValue = [paramStr substringWithRange:NSMakeRange(tempLen, [model.len integerValue]*2)];
-//        //长度校验
-//        if (model.parameterValue.length != [model.len intValue] *2) {
-//            VVDLog(@"长度不相等");
-//        }
-//        //NSLog(@"parameterValue == %@", model.parameterValue);
-//        tempLen = tempLen + 6 + [model.len integerValue]*2;
-//        [result addObject:[model getResult:model]];
-//    }
     return [self recursionResult:paramStr];
 }
 //递归分割 依次取出parno 和 value
@@ -172,7 +158,7 @@
         long i = strtoul([[resultStr substringWithRange:NSMakeRange(4, 2)] UTF8String],0,16)*2;
         NSString *parameterValueStr = [resultStr substringWithRange:NSMakeRange(6, i)];
         resultStr = [resultStr substringFromIndex:6+i];
-         VVDLog(@"%@--%@",parnoStr,parameterValueStr);
+        // VVDLog(@"%@--%@",parnoStr,parameterValueStr);
         ParameterModel *model = [ParameterModel getModelByparno:parnoStr];
         
         model.parameterValue = parameterValueStr;
@@ -184,12 +170,14 @@
     };
     return modelArr;
 }
+//帧头 格式固定
 - (NSArray *)getHead:(NSString *)str{
     NSString *headStr = [str substringToIndex:56];
     NSMutableArray *mutArr = @[].mutableCopy;
     NSArray *paraArr = @[BaseInfo0100,BaseInfo0300,BaseInfo0400,BaseInfo0800,BaseInfo0500];
     for (NSString *parno in paraArr) {
         ParameterModel *model = [ParameterModel getModelByparno:parno];
+        
         if ([parno isEqualToString:@"0100"]) {
            
             model.parameterValue = [headStr substringWithRange:NSMakeRange(2, 34)];

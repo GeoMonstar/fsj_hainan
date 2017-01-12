@@ -16,16 +16,41 @@ enum {
 typedef void(^ReciveTcpDataBlock)(NSData *data,NSString *host,UInt16 prot);
 
 @interface FSJTcpSocketTool : NSObject<AsyncSocketDelegate>
-
+/**
+ *  tcpSocket
+ */
 @property (nonatomic, strong)   AsyncSocket *tcpSocket;
-@property (nonatomic, strong)   NSTimer *socketTimer;
+/**
+ *  接收tcp数据Block
+ */
+@property (nonatomic, copy)     ReciveTcpDataBlock reciveTcpDataBlock;
+/**
+ *  ip地址
+ */
 @property (nonatomic, copy)     NSString  *socketHost;
+/**
+ *  端口号
+ */
 @property (nonatomic, assign)   UInt16  socketPort;
-@property (nonatomic, copy)     ReciveTcpDataBlock  reciveTcpDataBlock;
+/**
+ *  长连接计时器
+ */
+@property (nonatomic, strong)   NSTimer *socketTimer;
 
 + (FSJTcpSocketTool *)sharedInstance;
-- (void)tcpSendData:(NSData *)data;
+/**
+ *  TCP连接
+ */
 - (void)socketConHost;
+/**
+ *  TCP发送数据
+ *
+ *  @param data 数据
+ */
+- (void)tcpSendData:(NSData *)data;
+/**
+ *  TCP断开连接
+ */
 - (void)DisconnectSocket;
 
 

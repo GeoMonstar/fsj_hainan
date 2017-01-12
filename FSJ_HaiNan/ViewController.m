@@ -88,7 +88,6 @@
         }
         
     }
-    
     return 0;
 }
 
@@ -117,7 +116,6 @@
             [self.ParametersArr removeAllObjects];
         }
         if (indexPath.item >0) {
-            
             [self.ParametersArr addObject:self.SecondArrValue[indexPath.item]];
             [self sendMessageWithFunctionCode:self.mainArrValue[indexPath.row] andParamArr:self.ParametersArr];
         }
@@ -140,13 +138,13 @@
         ReadFrameBody *body = [[ReadFrameBody alloc]initWithFsjID:self.ShebeiIP FunctionCode:functionCode ParameterID:paramArr];
         NSData *bodyData = [body readData];
         [mutData appendData:bodyData];
-        [[FSJUdpSocketTool sharedInstance]sendMsg:mutData];
-        [FSJUdpSocketTool sharedInstance].reciveDataBlock = ^(NSData *data,NSString *host,UInt16 port){
-            
-            NSString *str =   [self convertDataToHexStr:data];
+        WeakSelf(weakself);
+      //  self.Udptool udpSendData:mutData;
+        [self.Udptool udpSendData:mutData];
+        self.Udptool.reciveDataBlock = ^(NSData *data,NSString *host,UInt16 port){
+            NSString *str =   [weakself convertDataToHexStr:data];
             NSLog(@"recv data from %@:%d -- %@   %ld", host, port,str,str.length);
-            
-            NSArray *arr =  [body responsReadData:data andParameterArr:self.ParametersArr];
+            NSArray *arr =  [body responsReadData:data];
         };
     }
     if ([functionCode isEqualToString:@"5A"]) {
@@ -154,12 +152,11 @@
         NSData *bodyData = [body readData];
         [mutData appendData:bodyData];
         
-        [[FSJUdpSocketTool sharedInstance]sendMsg:mutData];
+        [[FSJUdpSocketTool sharedInstance]udpSendData:mutData];
         [FSJUdpSocketTool sharedInstance].reciveDataBlock = ^(NSData *data,NSString *host,UInt16 port){
             NSString *str =   [self convertDataToHexStr:data];
             NSLog(@"recv data from %@:%d -- %@   %ld", host, port,str,str.length);
-            NSArray *arr =  [body responsReadData:data andParameterArr:self.ParametersArr];
-            
+            NSArray *arr =  [body responsReadData:data];
         };
     }
     if ([functionCode isEqualToString:@"10"]) {
@@ -169,12 +166,10 @@
         WriteFrameBody *body = [[WriteFrameBody alloc]initWithFsjID:self.ShebeiIP FunctionCode:functionCode ParameterdicArr:dicArr];
         NSData *bodyData = [body writeData];
         [mutData appendData:bodyData];
-         [[FSJUdpSocketTool sharedInstance]sendMsg:mutData];
-        [FSJUdpSocketTool sharedInstance].reciveDataBlock = ^(NSData *data,NSString *host,UInt16 port){
+        [[FSJUdpSocketTool sharedInstance]udpSendData:mutData];
+        [FSJUdpSocketTool  sharedInstance].reciveDataBlock = ^(NSData *data,NSString *host,UInt16 port){
             NSString *str =   [self convertDataToHexStr:data];
             NSLog(@"recv data from %@:%d -- %@   %ld", host, port,str,str.length);
-          
-            
         };
     }
 }
@@ -256,5 +251,6 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
     self.valueStr = self.valueTF.text;
+
 }
 @end

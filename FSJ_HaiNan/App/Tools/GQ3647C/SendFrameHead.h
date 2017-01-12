@@ -17,7 +17,9 @@
 @property (nonatomic,copy)NSString *extendCode;
 
 -(instancetype)initWithHead:(NSString *)head FsjAddressCode:(NSString *)fsjAddressCode ExtendCode:(NSString *)extendCode;
-
--(NSData *)description;
+/**
+ *  生成帧头数据
+ */
+-(NSData *)createHeadData;
 
 @end

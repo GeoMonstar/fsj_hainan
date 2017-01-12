@@ -9,12 +9,52 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FSJ_HaiNan.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SQLCipher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,6 +72,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>31318F11B682572E4B21F15991EE9F31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>375DB2235222700E38FF792A2EB8417F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D4DF8509412D7681F5B4BBDC45830DB</key>
 		<dict>
 			<key>primary</key>
@@ -42,17 +92,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>731AD67C67D17E781166A0D9F4655372</key>
+		<key>581525BAABE8AF376514A7928FF626F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE9D7F494E73928BDC602AD5C75EB31A</key>
+		<key>6B685A9D219F638D90EC2A69B1895B9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF339EC38C81C0E6CB2D086C6A15F66B</key>
+		<key>8C38C9DB10024E1AEA437F429AEA56E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A344D6834391D01F847177214E419469</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A75B6D1D0E38B255185CEAD860D7416C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF5C5398F767CD4BA06E101032C2D6D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBB8733872AEDCFEED42677D4128213A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE080D5B9C3F449F91FD0B6A9CDF3BA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E505BA0BE08EFB0F924EC1B24FD3EA0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

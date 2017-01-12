@@ -11,6 +11,12 @@ pod 'MJExtension'
 pod 'SSKeychain'
 pod 'YYModel'
 pod 'EGOCache'
-
+pod 'SDWebImage'
+pod 'IQKeyboardManager'
+pod 'MBProgressHUD'
+pod 'MJRefresh'
+pod 'FMDB/SQLCipher'
+pod 'ReactiveCocoa', '2.5'
+pod 'Masonry'
 end
-xcodeproj 'FSJ_HaiNan', 'Debug - local'=>:debug, 'Debug - staging'=>:debug, 'Debug - PRODUCTION'=>:debug
+project 'FSJ_HaiNan', 'Debug - local'=>:debug, 'Debug - staging'=>:debug, 'Debug - PRODUCTION'=>:debug

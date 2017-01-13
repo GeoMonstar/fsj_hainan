@@ -46,7 +46,7 @@ static FSJTcpSocketTool *sharedInstance = nil;
 //}
 - (void)tcpSendData:(NSData *)data{
 
-    NSLog(@"sendData == %@",data);
+    
     [self.tcpSocket writeData:data withTimeout:TIME_OUT tag:1];
     
 }

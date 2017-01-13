@@ -126,6 +126,7 @@ typedef NS_ENUM(NSInteger,ViewControllerTransitionType){
 #import "FMDBConstants.h"
 #import "Constants.h"
 #import "JQNagcAdapter.h"
+#import "ParametersList.h"
 /* Category */
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "MBProgressHUD+HUDTools.h"

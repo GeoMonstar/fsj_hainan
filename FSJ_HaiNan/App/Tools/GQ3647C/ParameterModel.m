@@ -18,14 +18,16 @@ typedef union { float f; uint32_t i; } FloatInt;
 }
 + (ParameterModel *)getModelByparno:(NSString *)parno{
     NSMutableArray *mutArr = @[].mutableCopy;
-    NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"ParametersJSON" ofType:@"json"];
+    NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"CG3647C" ofType:@"json"];
     NSData * jsonData = [[NSData alloc]initWithContentsOfFile:jsonPath];
     NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
     NSArray *jsonArr = [[[jsonDic objectForKey:@"tables"]objectForKey:@"parameter"]objectForKey:@"item"];
+    
     for (NSDictionary *dic in jsonArr) {
         ParameterModel *model = [ParameterModel initWithDictionary:dic];
         [mutArr addObject:model];
     }
+    VVDLog(@"count == %ld", mutArr.count);
     for (ParameterModel *model  in mutArr) {
         if ([model.parno isEqualToString:parno]) {
             return model;
@@ -50,6 +52,7 @@ typedef union { float f; uint32_t i; } FloatInt;
         }
         return mutstr;
     }
+    
     
     return oldValue;
 }
@@ -143,7 +146,7 @@ typedef union { float f; uint32_t i; } FloatInt;
     }
     //    V_UINT	无符号整型	固定4字节	参数单位 暂时不可写
     if ([model.type isEqualToString:@"V_UINT"]) {
-        return  [model.parameterValue ToHex];
+        return  [model.parameterValue ToHex4];
     }
     //    V_UCHAR	无符号单字节	固定1字节	参数单位
     if ([model.type isEqualToString:@"V_UCHAR"]) {

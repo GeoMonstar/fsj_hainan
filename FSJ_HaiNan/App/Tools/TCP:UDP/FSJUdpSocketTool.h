@@ -50,7 +50,14 @@ typedef void(^ReciveDataBlock)(NSData *data,NSString *host,UInt16 prot);
 
 
 /*
- 功能需求:建立多个udp/tcp连接
+ 功能需求:建立多个udp/tcp连接 
+ 1.获取发射机所有信息 保存本地 -- 读用到字段的所有命令 -- 建立本地模型保存一个发射机状态
+ 2.对主动上报部分参数修改 显示 
+ 3.发射机写入数据
+ 
+ 
+ 
+ 
  功能分析:多个udp连接
  点击注册 - 获得ip和端口号 - udptool - addsocket 
  */

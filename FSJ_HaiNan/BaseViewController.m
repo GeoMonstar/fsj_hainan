@@ -281,10 +281,10 @@ typedef union { float f; uint32_t i; } FloatInt;
     ViewController *vc = [[ViewController alloc]init];
     vc.headData = Data;
     vc.ShebeiIP = fsjAddr;
-    [[FSJTcpSocketTool sharedInstance]tcpSendData:adata];
-    [FSJTcpSocketTool sharedInstance].reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
-        NSLog(@"receive data from %@ %d data == %@",host,port,data);
-    };
+//    [[FSJTcpSocketTool sharedInstance]tcpSendData:adata];
+//    [FSJTcpSocketTool sharedInstance].reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
+//        NSLog(@"receive data from %@ %d data == %@",host,port,data);
+//    };
     vc.Udptool = udptool;
     [self.navigationController pushViewController:vc animated:YES];
 }

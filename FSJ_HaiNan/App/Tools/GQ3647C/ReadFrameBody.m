@@ -130,10 +130,7 @@
 }
 //解析帧体 利用参数数组
 - (NSArray *)getBody:(NSString *)str{
-//    NSMutableArray *result = @[].mutableCopy;
-//    NSMutableArray *parmMut = @[].mutableCopy;
-    
-    
+
     NSString *bodyStr = [str substringFromIndex:56];
     
     

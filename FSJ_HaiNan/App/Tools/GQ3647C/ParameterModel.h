@@ -55,18 +55,39 @@ typedef NS_ENUM(NSInteger, ParameterStatus){
 //@property (nonatomic, copy)     NSString  *parameterLength;
 
 //@property (nonatomic, assign)   ParameterType parameterType;
-
+/**
+ *  参数读写 0 可读 1 可写 2 可读写
+ */
 @property (nonatomic, assign)   ParameterStatus parameterStatus;
 
 
-
+/**
+ *  返回串口信息值
+ */
 @property (nonatomic, copy)     NSString  *parameterValue;
+/**
+ *  数据精度
+ */
 @property (nonatomic, copy)     NSString  *deci;
+/**
+ *  数据描述
+ */
 @property (nonatomic, copy)     NSString  *detail;
+/**
+ *  数据长度
+ */
 @property (nonatomic, copy)     NSString  *len;
+/**
+ *  参数名称
+ */
 @property (nonatomic, copy)     NSString  *name;
-//序号
+/**
+ *  参数序号
+ */
 @property (nonatomic, copy)     NSString  *parno;
+/**
+ *  参数类型 根据类型处理不同数据
+ */
 @property (nonatomic, copy)     NSString  *type;
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 //地点（台站）编码
 extern NSString *const BaseInfo0100;
 //设备名称

@@ -12,26 +12,32 @@
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource>
 
 
+
 @end
 
 @implementation HomeVC
 - (void)viewWillAppear:(BOOL)animated{
     self.leftBigBtn.hidden = NO;
-    
     self.searchView.hidden = NO;
     self.rightBtn.hidden = NO;
+    [self initData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     
 }
 - (void)initData{
-    
-    
-
+    [self.dataArray removeAllObjects];
+    NSMutableArray *fsjIdArr = (NSMutableArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
+    for (NSString *idStr in fsjIdArr) {
+       OneFSJModel * model=  (OneFSJModel *)[[EGOCache globalCache]objectForKey:idStr];
+        
+        [self.dataArray addObject:model.bodyValueDic];
+         [self.mytableView reloadData];
+    }
+   
 }
 -(void)createUI{
-    //nav
     
     //tableview
     self.mytableView.delegate = self;
@@ -54,7 +60,6 @@
     regBtn.layer.masksToBounds = YES;
     [self.view insertSubview:regBtn aboveSubview:self.mytableView];
     
-    
     [regBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(60);
         make.width.mas_equalTo(60);
@@ -64,14 +69,13 @@
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     return 130;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return self.dataArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 2;
@@ -81,8 +85,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeCell *cell = [HomeCell initWith:tableView];
+    cell.dataDic = self.dataArray[indexPath.section];
     cell.selectedIndexBlock = ^(NSInteger index){
-    
         VVDLog(@"%ld",index);
     };
     return cell;
@@ -93,8 +97,4 @@
     [super didReceiveMemoryWarning];
     
 }
-
-
-
-
 @end

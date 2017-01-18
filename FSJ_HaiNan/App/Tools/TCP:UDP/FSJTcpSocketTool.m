@@ -24,8 +24,12 @@ static FSJTcpSocketTool *sharedInstance = nil;
 }
 
 - (void)socketConHost{
+    
+ 
+  
     self.tcpSocket = [[AsyncSocket alloc]initWithDelegate:self];
     NSError *error = nil;
+    
     [self.tcpSocket connectToHost:self.socketHost onPort:self.socketPort error:&error];
 }
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
@@ -45,7 +49,6 @@ static FSJTcpSocketTool *sharedInstance = nil;
 //    [self.tcpSocket writeData:data withTimeout:-1 tag:0];
 //}
 - (void)tcpSendData:(NSData *)data{
-
     
     [self.tcpSocket writeData:data withTimeout:TIME_OUT tag:1];
     
@@ -53,11 +56,12 @@ static FSJTcpSocketTool *sharedInstance = nil;
 //得到数据
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    
+    if ([self.socketDelegate respondsToSelector:@selector(socketReadedData:fromHost:andPort:)]) {
+        [self.socketDelegate socketReadedData:data fromHost:self.socketHost andPort:self.socketPort];
+    }
     if (self.reciveTcpDataBlock) {
         self.reciveTcpDataBlock(data,self.socketHost,self.socketPort);
     }
-    
     [self.tcpSocket readDataWithTimeout:TIME_OUT tag:0];
 }
 //断开Socket
@@ -75,18 +79,18 @@ static FSJTcpSocketTool *sharedInstance = nil;
     //服务器断开状态
     if (sock.userData == SocketServerDrops) {
         //如果是服务器
-        NSLog(@"服务器断开了");
+        VVDLog(@"服务器断开了");
         [self socketConHost];
         
     } else if(sock.userData == SocketUserDrops)
     {
         //用户断开不重连
-        NSLog(@"断开连接");
+        VVDLog(@"断开连接");
         return;
     } else if (sock.userData == SocketWIFIDrops)
     {
         //用户断开不重连
-        NSLog(@"wifi断开连接");
+        VVDLog(@"wifi断开连接");
         [self socketConHost];
         return;
     }

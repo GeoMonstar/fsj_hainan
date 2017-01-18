@@ -8,6 +8,7 @@
 
 #import "BaseVC.h"
 #import "PersonVC.h"
+
 #define Placeholder @"请输入发射机名称或IP"
 @interface BaseVC ()
 
@@ -15,12 +16,16 @@
 @end
 
 @implementation BaseVC
+- (void)viewWillAppear:(BOOL)animated{
 
+    [super viewWillAppear:animated];
+     [self initData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createNav];
     [self createUI];
-    [self initData];
+   
 }
 
 - (void)linkTicks:(CADisplayLink *)link{
@@ -203,5 +208,11 @@
         _navTitle.textAlignment = NSTextAlignmentCenter;
     }
     return _navTitle;
+}
+- (NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = @[].mutableCopy;
+    }
+    return _dataArray;
 }
 @end

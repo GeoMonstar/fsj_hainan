@@ -28,7 +28,19 @@
     [self changeBtn:self.deleteBtn];
     
 }
-
+- (void)setDataDic:(NSDictionary *)dataDic{
+    self.fsjNameLb.text = [NSString stringWithFormat:@"%@",[dataDic objectForKey:[@"0x0002" ReverseStr]]];
+    self.fansheLb.text = [NSString stringWithFormat:@"发射功率:%@W",[dataDic objectForKey:[@"0x000A" ReverseStr]]];
+    self.fasheLb.text = [NSString stringWithFormat:@"反射功率:%@W",[dataDic objectForKey:[@"0x0202" ReverseStr]]];
+    self.zbLb.text = [NSString stringWithFormat:@"驻波比:%@",[dataDic objectForKey:[@"0x0205" ReverseStr]]];
+    self.wenduLb.text = [NSString stringWithFormat:@"温度:%@°C",[dataDic objectForKey:[@"0x0207" ReverseStr]]];
+//    self.fsjNameLb.text = [NSString stringWithFormat:@"%@",[dataDic objectForKey:@"0x0002"]];
+//    self.fansheLb.text = [NSString stringWithFormat:@"发射功率:%@W",[dataDic objectForKey:@"0x000A"]];
+//    self.fasheLb.text = [NSString stringWithFormat:@"反射功率:%@W",[dataDic objectForKey:@"0x0202" ]];
+//    self.zbLb.text = [NSString stringWithFormat:@"驻波比:%@",[dataDic objectForKey:@"0x0205"]];
+//    self.wenduLb.text = [NSString stringWithFormat:@"温度:%@°C",[dataDic objectForKey:@"0x0207"]];
+    
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     

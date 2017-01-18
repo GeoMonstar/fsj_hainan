@@ -53,6 +53,8 @@ typedef void(^SelectedIndexBlock) (NSInteger index);
 /**
  * 按钮点击
  */
+@property (nonatomic,strong)NSDictionary *dataDic;
+
 @property (nonatomic,copy)   SelectedIndexBlock selectedIndexBlock;
 + (HomeCell *)initWith:(UITableView *)tableView;
 @end

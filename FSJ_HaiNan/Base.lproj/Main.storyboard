@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106.3999999999996" y="134.48275862068968"/>
+            <point key="canvasLocation" x="3892" y="134"/>
         </scene>
         <!--RootVC-->
         <scene sceneID="v7Y-XH-8iw">
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTb-GS-rPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4805.6000000000004" y="23.838080959520241"/>
+            <point key="canvasLocation" x="3892" y="780"/>
         </scene>
         <!--Base View Controller-->
         <scene sceneID="u6F-f0-wnm">
@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="7000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txz-6V-VIK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txz-6V-VIK">
                                 <rect key="frame" x="166" y="151" width="173" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHu-ZL-5aK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3402.4000000000001" y="134.48275862068968"/>
+            <point key="canvasLocation" x="3234" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yQB-VD-YdE">

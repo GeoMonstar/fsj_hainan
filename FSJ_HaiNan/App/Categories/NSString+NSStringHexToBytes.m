@@ -90,4 +90,26 @@
     }
     return str;
 }
+ //0100转"0x0001"
+//- (NSString *)ReverseStr{
+//    NSMutableString *mutstr = [NSMutableString string];
+//    [mutstr appendString:@"0x"];
+//    for ( NSInteger i = self.length/2-1; i >= 0; i --) {
+//        NSString *tempstr =  [self substringWithRange:NSMakeRange(i*2, 2)];
+//        tempstr= [tempstr lowercaseString];
+//        [mutstr appendString:[tempstr uppercaseString]];
+//    }
+//    return mutstr;
+//}
+//"0x0001"转0100
+- (NSString *)ReverseStr{
+    NSMutableString *mutstr = [NSMutableString string];
+   
+    for ( NSInteger i = self.length/2-1; i > 0; i --) {
+        NSString *tempstr =  [self substringWithRange:NSMakeRange(i*2, 2)];
+        tempstr= [tempstr lowercaseString];
+        [mutstr appendString:tempstr ];
+    }
+    return mutstr;
+}
 @end

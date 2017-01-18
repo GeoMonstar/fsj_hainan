@@ -1,0 +1,42 @@
+//
+//  PersonVc.m
+//  FSJ_HaiNan
+//
+//  Created by Monstar on 2017/1/12.
+//  Copyright © 2017年 Monstar. All rights reserved.
+//
+
+#import "PersonVC.h"
+
+@interface PersonVC ()
+
+@end
+
+@implementation PersonVC
+- (void)viewWillAppear:(BOOL)animated{
+    self.leftBtn.hidden = NO;
+    self.navTitle.text = @"个人";
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = WhiteColor;
+}
+- (void)createUI{
+   
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

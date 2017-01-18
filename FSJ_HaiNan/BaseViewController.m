@@ -7,24 +7,18 @@
 //
 
 #import "BaseViewController.h"
-#import "FSJUdpSocketTool.h"
-#import "SendFrameHead.h"
-#import "ReadFrameBody.h"
-#import "NSString+NSStringHexToBytes.h"
+
 #import "ViewController.h"
-#import "FSJTcpSocketTool.h"
-#import "ParameterModel.h"
-#import "EGOCache.h"
-#import "ParametersList.h"
+
 #define kParametersKey @"test"
 typedef union { float f; uint32_t i; } FloatInt;
-@interface BaseViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate>{
+@interface BaseViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate,FSJTcoSocketDelegate>{
     NSArray *sortArr;
     NSString *fsjAddr;
     NSString *zhantaiCode;
     NSString *extendCode;
     NSData *adata;
-    FSJUdpSocketTool *udptool ;
+    FSJTcpSocketTool *tcptool;
 }
 @property (weak, nonatomic) IBOutlet UITextField *hostAddrTF;
 @property (weak, nonatomic) IBOutlet UITextField *portTF;
@@ -61,27 +55,27 @@ typedef union { float f; uint32_t i; } FloatInt;
     adata = [[NSData alloc] initWithBytes:byte length:sizeof(byte)/sizeof(byte[0])];
    
 }
-- (void)getJsonData{
-    NSMutableArray *mutArr = @[].mutableCopy;
-    NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"Parameters" ofType:@"json"];
-    NSData * jsonData = [[NSData alloc]initWithContentsOfFile:jsonPath];
-    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
-    
-    for (NSDictionary *dic in jsonArr) {
-        ParameterModel *model = [ParameterModel initWithDictionary:dic];
-        [mutArr addObject:model];
-    }
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mutArr];
-    [[EGOCache globalCache]setData:data forKey:kParametersKey];
-    NSData *data2 = [[EGOCache globalCache]dataForKey:kParametersKey];
-    NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data2];
-    
-    for (ParameterModel *model in arr) {
-        if ([model.parno isEqualToString:BaseInfo0100]) {
-           // VVDLog(@" model== %@ %@",model.parametername,model.parameterLength);
-        }
-    }
-}
+//- (void)getJsonData{
+//    NSMutableArray *mutArr = @[].mutableCopy;
+//    NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"Parameters" ofType:@"json"];
+//    NSData * jsonData = [[NSData alloc]initWithContentsOfFile:jsonPath];
+//    NSArray *jsonArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+//    
+//    for (NSDictionary *dic in jsonArr) {
+//        ParameterModel *model = [ParameterModel initWithDictionary:dic];
+//        [mutArr addObject:model];
+//    }
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:mutArr];
+//    [[EGOCache globalCache]setData:data forKey:kParametersKey];
+//    NSData *data2 = [[EGOCache globalCache]dataForKey:kParametersKey];
+//    NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:data2];
+//    
+//    for (ParameterModel *model in arr) {
+//        if ([model.parno isEqualToString:BaseInfo0100]) {
+//           // VVDLog(@" model== %@ %@",model.parametername,model.parameterLength);
+//        }
+//    }
+//}
 
 -(NSDate *)changeSpToTime:(NSString*)spString
 {
@@ -99,10 +93,10 @@ typedef union { float f; uint32_t i; } FloatInt;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    udptool = [[FSJUdpSocketTool alloc]init];
+    tcptool = [[FSJTcpSocketTool alloc]init];
     
-    udptool.hostAddress = self.hostAddrTF.text;
-    udptool.serverPort  = [self.portTF.text integerValue];
+    tcptool.socketHost = self.hostAddrTF.text;
+    tcptool.socketPort  = [self.portTF.text integerValue];
     self.navigationItem.hidesBackButton = YES;
     [self tcpTest];
      self.chosePickView.delegate   = self;
@@ -270,23 +264,75 @@ typedef union { float f; uint32_t i; } FloatInt;
     pickerLabel.text=[self pickerView:pickerView titleForRow:row forComponent:component];
     return pickerLabel;
 }
+
+//模拟注册 
 - (IBAction)gotoNext:(id)sender {
     for (UITextField *TF in self.view.subviews) {
         [TF endEditing:YES];
     }
-     [udptool socketConnectHost];
+    [tcptool DisconnectSocket];
+    [tcptool socketConHost];
     SendFrameHead *head = [[SendFrameHead alloc]initWithHead:@"26" FsjAddressCode:zhantaiCode ExtendCode:extendCode];
-    NSData *Data =  [head createHeadData];
+    NSData *headData =  [head createHeadData];
     
-    ViewController *vc = [[ViewController alloc]init];
-    vc.headData = Data;
-    vc.ShebeiIP = fsjAddr;
+    
+    //测试读所以参数
+    NSMutableArray *mutArr = @[].mutableCopy;
+    for (NSDictionary *dic in (NSArray *)[[EGOCache globalCache]objectForKey:kJsonArr]) {
+        ParameterModel *model = [ParameterModel initWithDictionary:dic];
+        [mutArr addObject:model.parno];
+    }
+    
+    ReadFrameBody *body = [[ReadFrameBody alloc]initWithFsjID:fsjAddr FunctionCode:@"03" ParameterID:mutArr];
+    
+    NSMutableData *mutData = [[NSMutableData alloc]initWithData:headData];
+    NSData *bodyData = [body readData];
+    
+    [mutData appendData:bodyData];
+    
+    [tcptool tcpSendData:mutData];
+    NSString *fsjId = tcptool.socketHost;
+    
+    NSMutableArray *fsjIdArr = (NSMutableArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
+    NSMutableArray *resultArray = @[].mutableCopy;
+     [fsjIdArr addObject:fsjId];
+    for (NSString *str in fsjIdArr) {
+        if (![resultArray containsObject:str]) {
+            [resultArray addObject:str];
+        }
+    }
+  
+    VVDLog(@"本地数组长度== %ld",resultArray.count);
+    [[EGOCache globalCache]setObject:(NSMutableArray *)resultArray forKey:kfsjIdArr];
+    
+    tcptool.reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
+        //NSLog(@"recv data from %@:%d -- %@   %ld", host, port,str,str.length);
+        OneFSJModel *model = [[OneFSJModel alloc]initWithfsjHost:host andfsjPort:port andreadData:data andsendData:mutData];
+        //保存本地
+        [[EGOCache globalCache]setObject:(OneFSJModel *)model forKey:host];
+        VVDLog(@"%@",model.bodyValueDic);
+    };
+    tcptool.socketDelegate = self;
+    
+}
+- (void)socketReadedData:(id)data fromHost:(NSString *)host andPort:(UInt16)port{
+    
+     NSArray *fsjIdArr = (NSArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
+    for (NSString *fsjID in fsjIdArr) {
+        if ([fsjID isEqualToString:host]) {
+            
+        }
+    }
+}
+//    ViewController *vc = [[ViewController alloc]init];
+//    vc.headData = headData;
+//    vc.ShebeiIP = fsjAddr;
+//    vc.Udptool = udptool;
+//    [self.navigationController pushViewController:vc animated:YES];
+
+//    tcp
 //    [[FSJTcpSocketTool sharedInstance]tcpSendData:adata];
 //    [FSJTcpSocketTool sharedInstance].reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
 //        NSLog(@"receive data from %@ %d data == %@",host,port,data);
 //    };
-    vc.Udptool = udptool;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 @end

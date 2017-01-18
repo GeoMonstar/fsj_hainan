@@ -8,18 +8,17 @@
 
 #import "ViewController.h"
 #import "DOPDropDownMenu.h"
-#import "ParametersList.h"
-#import "ReadFrameBody.h"
-#import "FSJUdpSocketTool.h"
-#import "SendFrameHead.h"
+//#import "ParametersList.h"
+//#import "ReadFrameBody.h"
+//#import "FSJUdpSocketTool.h"
+//#import "SendFrameHead.h"
 #import "ReadFrameBody.h"
 #import "NSString+NSStringHexToBytes.h"
 #import "ViewController.h"
-#import "WriteFrameBody.h"
-#import "SearchFrameBody.h"
+//#import "WriteFrameBody.h"
+//#import "SearchFrameBody.h"
 @interface ViewController ()<DOPDropDownMenuDataSource, DOPDropDownMenuDelegate,UITextFieldDelegate>{
-    //保存临时参数
-    //NSArray *parameterArr;
+   
 }
 
 @property (nonatomic, strong) DOPDropDownMenu *menu;

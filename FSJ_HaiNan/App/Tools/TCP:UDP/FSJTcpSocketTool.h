@@ -14,7 +14,18 @@ enum {
     SocketWIFIDrops,   //wifi
 };
 typedef void(^ReciveTcpDataBlock)(NSData *data,NSString *host,UInt16 prot);
+@protocol FSJTcoSocketDelegate <NSObject>
 
+/**
+ *  监听到服务器发送过来的消息
+ *
+ *  @param data 数据
+ *  @param host ip
+ *  @param port 端口号
+ */
+- (void)socketReadedData:(id)data fromHost:(NSString *)host andPort:(UInt16)port;
+
+@end
 @interface FSJTcpSocketTool : NSObject<AsyncSocketDelegate>
 /**
  *  tcpSocket
@@ -37,6 +48,8 @@ typedef void(^ReciveTcpDataBlock)(NSData *data,NSString *host,UInt16 prot);
  */
 @property (nonatomic, strong)   NSTimer *socketTimer;
 
+// socket 回调
+@property (nonatomic, weak) id<FSJTcoSocketDelegate> socketDelegate;
 + (FSJTcpSocketTool *)sharedInstance;
 /**
  *  TCP连接

@@ -10,9 +10,16 @@
 
 @interface NSString (NSStringHexToBytes)
 
-//16进制字符串转Data
+
+/**
+ *  16进制字符串转Data
+ *  return 16进制字符串转Data
+ */
 -(NSData*)hexToBytes;
-//10进制字符串转16进制  倒序输出
+/**
+ *  10进制字符串转16进制  倒序输出
+ *  return 10进制字符串转16进制  倒序输出
+ */
 - (NSString *)ToHex;
 
 - (NSString *)ToHex2;
@@ -22,4 +29,11 @@
 - (NSString *)ToHex4;
 
 - (NSString *)ToHex8;
+/**
+ *  0100转"0x0001"
+ *  return "0x0001"
+ */
+- (NSString *)ReverseStr;
+
+
 @end

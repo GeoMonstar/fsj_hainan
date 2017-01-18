@@ -81,11 +81,13 @@
 #define kAppUserInfo            @"AppUserInfo"
 #define kNotificationWithLogout @"NotificationWithLogout"
 #define kNotificationWithLogin  @"NotificationWithLogin"
+#define kNotificatioTcpConnect  @"NotificatioTcpConnect"
 
 /**************Cache**************/
 #define kHomedata    @"kHomedata"
 #define kHomelunbo   @"kHomelunbo"
 #define kDianboData  @"kDianboData"
-
-
+#define kJsonArr     @"kJsonArr"
+#define kMapDic      @"kMapDic"
+#define kfsjIdArr      @"kfsjIdArr"
 #endif /* Config_h */

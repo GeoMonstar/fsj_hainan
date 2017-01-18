@@ -41,6 +41,10 @@
  * 基本tableview
  */
 @property (nonatomic,strong)UITableView *mytableView;
+/**
+ * 基本dataArray
+ */
+@property (nonatomic,strong)NSMutableArray *dataArray;
 
 - (void)createUI;
 - (void)initData;

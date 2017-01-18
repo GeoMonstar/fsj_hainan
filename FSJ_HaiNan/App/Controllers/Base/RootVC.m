@@ -32,8 +32,7 @@
     if([App_LastVersionCode isEqualToString:App_CurrentVersionCode]){
         //不是第一次启动
         if (![[SSKeychain accessToken]isEqualToString:@""]) {
-            
-            [self getNewestjwt];
+            [self conncetFSJ];
             self.rootVC = [JQInitializeTabbarController initializeTabbarControllerReturnTBC];
         }else{
             //需要登录
@@ -48,7 +47,6 @@
          *  第一次使用app时
          */
         //创建数据库
-        
         [[FMEncryptDatabaseQueue sharedInstance]inDatabase:^(FMDatabase *db) {
             if (App_LastVersionCode == nil) {
                 [SSKeychain deleteAccessToken];
@@ -68,9 +66,8 @@
         }];
     }
 }
-- (void)getNewestjwt{
-    
- 
+//连接设备
+- (void)conncetFSJ{
     
 }
 - (void)didReceiveMemoryWarning {

@@ -48,4 +48,5 @@
 
 - (void)createUI;
 - (void)initData;
+- (void)rightBtnClicked:(UIButton *)sender;
 @end

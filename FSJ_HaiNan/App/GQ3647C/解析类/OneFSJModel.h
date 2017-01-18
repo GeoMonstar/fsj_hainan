@@ -25,9 +25,6 @@
  */
 @property (nonatomic, strong)NSData  *sendData;
 
-- (instancetype)initOneFSJModelWithID:(NSString *)ID
-                   andHeadValueDictionary:(NSDictionary *)HeadValuedictionary
-                   andBodyValueDictionary:(NSDictionary *)BodyValuedictionary;
 - (instancetype)initWithfsjHost:(NSString *)fsjHost
                      andfsjPort:(UInt16 )fsjPort
                     andreadData:(NSData *)readData
@@ -56,9 +53,17 @@
  */
 - (NSDictionary *)getNameDic;
 /**
- *  获取Body值 汉字名称
+ *  根据发射机host获取模型
  *
- *  @return Key为name的字典
+ *  @param  fsjID 发射机host
+ *
+ *  @return 发射机模型
+ */
++ (OneFSJModel *)getOneFSJWithFsjID:(NSString *)fsjID;
+/**
+ *  更新发射机
+ *
  */
 - (void)updateFSJModel;
+
 @end

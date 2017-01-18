@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables sblx="1050" name="发射机通信协议">
+	<command>
+		<item cmd="0x5A" visible="1" disc="搜索发射机接口命令" dir="下" bcport="8888" parm="-" needback="0x0021,0x0022,0x0023,0x0024,0x0025,0x000C,0x0030,0x0031,0x0035,0x0036,0x003A,0x003B,0x0026,0x0027"/>
+		<item cmd="0x5D" visible="1" disc="短期网络配置" dir="下" bcport="8888" parm="0x0021,0x0022,0x0023,0x0024,0x0025" needback=""/>
+		<item cmd="0x03" visible="1" disc="读台站编码" dir="下" bcport="0" parm="0x0001"/>
+		<item cmd="0x10" visible="1" disc="设台站编码" dir="下" bcport="0" parm="0x0001"/>
+		<item cmd="0x03" visible="1" disc="读发射机时间" dir="下" bcport="0" parm="0x000B"/>
+		<item cmd="0x10" visible="1" disc="设发射机时间" dir="下" bcport="0" parm="0x000B"/>
+		<item cmd="0x03" visible="1" disc="读取时间表" dir="下" bcport="0" parm="0x0160,0x0161,0x0162,0x0163,0x0164,0x0165,0x0166,0x0167,0x0168"/>
+		<item cmd="0x10" visible="1" disc="写时间表" dir="下" bcport="0" parm="0x0160,0x0161,0x0162,0x0163,0x0164,0x0165,0x0166,0x0168"/>
+		<item cmd="0x10" visible="1" disc="写时间表2" dir="下" bcport="0" parm="0x0160;0x0161;0x0162;0x0163;0x0164;0x0165;0x0166;0x0168"/>
+		<item cmd="0x03" visible="1" disc="读设备基础信息" dir="下" bcport="0" parm="0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007,0x0008,0x0009,0x000A,0x000C"/>
+		<item cmd="0x10" visible="1" disc="写设备基础信息" dir="下" bcport="0" parm="0x0001,0x0002"/>
+		
+    <item cmd="0x03" visible="1" disc="读IP信息" dir="上" bcport="0" parm="0x0020,0x0022,0x0023,0x0024,0x0025,0x0026,0x0027,0x0028,0x0029,0x002A,0x002B,0x003F,0x0040,0x0041,0x0042,0x0043,0x0044"/>
+    <item cmd="0x10" visible="1" disc="写IP信息" dir="下" bcport="0" parm="0x0020,0x0022,0x0023,0x0024,0x0025,0x0026,0x0027,0x0028,0x0029,0x002A,0x002B,0x003F,0x0040,0x0041,0x0042"/>
+    
+    <item cmd="0x03" visible="1" disc="读远程主机设置" dir="上" bcport="0" parm="0x0030,0x0031,0x0032,0x0033,0x0034,0x0035,0x0036,0x0037,0x0038,0x0039,0x003A,0x003B,0x003C,0x003D,0x003E"/>
+    <item cmd="0x10" visible="1" disc="写远程主机设置" dir="下" bcport="0" parm="0x0030,0x0031,0x0032,0x0033,0x0034,0x0035,0x0036,0x0037,0x0038,0x0039,0x003A,0x003B,0x003C,0x003D,0x003E"/>
+		
+		<item cmd="0x03" visible="1" disc="读主动报文序列" dir="下" bcport="0" parm="0x01F8;0x01F9;0x01FA;0x01FB;0x01FC"/>
+    <item cmd="0x10" visible="1" disc="设主动报文序列" dir="下" bcport="0" parm="0x01F8;0x01F9;0x01FA;0x01FB;0x01FC"/>
+		
+		
+		<item cmd="0x03" visible="1" disc="读整机信息" dir="上" bcport="0" parm="0x00C0,0x00C1,0x00C2,0x0128,0x0129,0x012B"/>
+		
+		<item cmd="0x10" visible="1" disc="开关机控制" dir="下" bcport="0" parm="0x0101;0x0102"/>
+		<item cmd="0x10" visible="1" disc="激励模块（器）切换器工作控制" dir="下" bcport="0" parm="0x012B"/>
+		
+		<item cmd="0x03" visible="1" disc="读发射机状态" dir="上" bcport="0" parm="0x0201,0x0202,0x0203,0x0204,0x0205,0x0206,0x0207,0x0210,0x0211,0x0213,0x0214,0x0215,0x0212,0x0220,0x0221,0x0222,0x0223,0x0224,0x0225,0x0226,0x0227,0x0228,0x0229,0x022A,0x022B,0x022C,0x022D,0x022E,0x023C,0x023E,0x023F"/>
+		<item cmd="0x10" visible="1" disc="设发射机参数" dir="上" bcport="0" parm="0x0129;0x0128;0x012B;0x0221;0x0222,0x0223,0x0224,0x0225,0x0226,0x0227,0x0228;0x0229,0x022A,0x022B,0x022C,0x022D,0x022E;0x023C,0x023E,0x023F"/>
+		
+		<item cmd="0x03" visible="1" disc="读功放1参数" dir="上" bcport="0" parm="0x1000,0x1001,0x1002,0x1003,0x1004,0x101E,0x101F,0x1020,0x1021,0x1022,0x103E,0x103F,0x1040,0x1041,0x1042"/>
+		<item cmd="0x03" visible="1" disc="读功放2参数" dir="上" bcport="0" parm="0x1100,0x1101,0x1102,0x1103,0x1104,0x111E,0x111F,0x1120,0x1121,0x1122,0x113E,0x113F,0x1140,0x1141,0x1142"/>
+		
+		<item cmd="0x03" visible="1" disc="读电源1参数" dir="上" bcport="0" parm="0x8000,0x8001,0x8002,0x8003,0x8004,0x800E"/>
+		<item cmd="0x03" visible="1" disc="读电源2参数" dir="上" bcport="0" parm="0x8010,0x8011,0x8012,0x8013,0x8014,0x801E"/>
+		
+		<item cmd="0x03" visible="1" disc="读激励器1参数1" dir="上" bcport="0" parm="0xB000,0xB001,0xB002,0xB003,0xB004,0xB005,0xB006,0xB007,0xB008,0xB009,0xB00A,0xB00B,0xB00E,0xB00C,0xB00D,0xB010,0xB011,0xB012,0xB013,0xB014,0xB015"/>
+		<item cmd="0x03" visible="1" disc="读激励器1参数2" dir="上" bcport="0" parm="0xB01E,0xB01F,0xB020,0xB021,0xB022,0xB023,0xB024,0xB025,0xB026,0xB027,0xB028,0xB029,0xB02A,0xB02B,0xB02C,0xB02D,0xB02E,0xB02F,0xB030,0xB031,0xB032,0xB033,0xB034,0xB035,0xB036,0xB037"/>
+		<item cmd="0x10" visible="1" disc="设激励器1参数" dir="上" bcport="0" parm="0xB003;0xB00B;0xB00E;0xB010;0xB012;0xB013;0xB014;0xB02B;0xB02C;0xB02D;0xB02E;0xB02F;0xB030;0xB031;0xB032;0xB033;0xB034;0xB035"/>
+		
+		<item cmd="0x03" visible="1" disc="读激励器2参数1" dir="上" bcport="0" parm="0xB040,0xB041,0xB042,0xB043,0xB044,0xB045,0xB046,0xB047,0xB048,0xB049,0xB04A,0xB04B,0xB04E,0xB04C,0xB04D,0xB050,0xB051,0xB052,0xB053,0xB054,0xB055"/>
+		<item cmd="0x03" visible="1" disc="读激励器2参数2" dir="上" bcport="0" parm="0xB05E,0xB05F,0xB060,0xB061,0xB062,0xB063,0xB064,0xB065,0xB066,0xB067,0xB068,0xB069,0xB06A,0xB06B,0xB06C,0xB06D,0xB06E,0xB06F,0xB070,0xB071,0xB072,0xB073,0xB074,0xB075"/>
+		<item cmd="0x10" visible="1" disc="设激励器2参数" dir="上" bcport="0" parm="0xB043;0xB04B;0xB050;0xB052;0xB053;0xB054;0xB06B;0xB06C;0xB06D;0xB06E;0xB06F;0xB070;0xB071;0xB072;0xB073;0xB074;0xB075"/>
+		
+		<item cmd="0x03" visible="1" disc="读激励器切换器参数" dir="上" bcport="0" parm="0x012B,0xB080,0xB081"/>
+		
+		<item cmd="0x03" visible="1" disc="读风机参数" dir="上" bcport="0" parm="0xB0A0,0xB0A1,0xB0A2,0xB0A3,0xB0A4,0xB0A5,0xB0A6,0xB0A7"/>
+	
+		<item cmd="0x03" visible="1" disc="读液冷参数" dir="上" bcport="0" parm="0xB0D0,0xB0D1,0xB0D2,0xB0D3,0xB0D4,0xB0D5"/>
+		
+		<item cmd="0x90" visible="0" disc="写命令错误响应" dir="下" bcport="0" parm="-"/>
+
+		<item cmd="0x56" visible="0" disc="心跳包帧" dir="下" bcport="0" parm="-"/>
+		<item cmd="0x65" visible="0" disc="主动报文" dir="下" bcport="0" parm="-"/>
+	</command>
+	<parameter>
+
+		<item parno="0x0001" name="发射台编号" type="V_STRING" len="17" deci="0" detail="-"/>
+		<item parno="0x0002" name="设备名称" type="V_STRING" len="32" deci="0" detail="字符串"/>
+		<item parno="0x0003" name="设备硬件版本号" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0004" name="设备软件版本号" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0005" name="生产厂家" type="V_STRING" len="32" deci="0" detail="字符串"/>
+		<item parno="0x0006" name="设备型号" type="V_STRING" len="32" deci="0" detail="字符串"/>
+		<item parno="0x0007" name="产品序列号" type="V_STRING" len="16" deci="0" detail="-"/>
+		<item parno="0x0008" name="设备类型码" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0009" name="设备冷却方式" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0x000A" name="设备功率等级" type="V_UINT" len="4" deci="0" detail="W"/>
+		<item parno="0x000B" name="设备时间" type="V_UNIXTIME" len="8" deci="0" detail="-"/>
+		<item parno="0x000C" name="主控板CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		
+		<item parno="0x0020" name="设备地址" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0x0021" name="mac地址" type="V_HEX" len="6" deci="0" detail="-"/>
+		<item parno="0x0022" name="启用DHCP" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0x0023" name="发射机IP地址" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0024" name="子网掩码" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0025" name="默认网关" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0026" name="本地管理1 IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0027" name="本地管理2 IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0028" name="内部联动1IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0029" name="内部联动1端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x002A" name="内部联动2IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x002B" name="内部联动2端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+
+
+		<item parno="0x0030" name="远程主机1IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0031" name="远程主机1端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0032" name="主机1主动间隔1" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0033" name="主机1主动间隔2" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0034" name="主机1主动间隔3" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0035" name="远程主机2IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0036" name="远程主机2端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0037" name="主机2主动间隔1" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0038" name="主机2主动间隔2" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x0039" name="主机2主动间隔3" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x003A" name="远程主机3IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x003B" name="远程主机3端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x003C" name="主机3主动间隔1" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x003D" name="主机3主动间隔2" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x003E" name="主机3主动间隔3" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0x003F" name="启用IP过滤" type="V_ENUM" len="1" deci="0" detail="0x00,禁用;0x01,启用"/>
+		<item parno="0x0040" name="NTP服务器地址" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0041" name="启用自动校时" type="V_ENUM" len="1" deci="0" detail="0x00,禁用;0x01,启用"/>
+		<item parno="0x0042" name="心跳包间隔" type="V_UCHAR" len="1" deci="0" detail="秒"/>
+		<item parno="0x0043" name="远程登录主机IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0x0044" name="远程登录主机端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		
+		<item parno="0x00C0" name="激励器数量" type="V_UCHAR" len="1" deci="0" detail="个"/>
+		<item parno="0x00C1" name="功放数量" type="V_UCHAR" len="1" deci="0" detail="个"/>
+		<item parno="0x00C2" name="直流稳压电源数量" type="V_UCHAR" len="1" deci="0" detail="个"/>
+		
+		<item parno="0x0101" name="开机" type="V_STRING" len="2" deci="0" detail="default:ON"/>
+		<item parno="0x0102" name="关机" type="V_STRING" len="3" deci="0" detail="default:OFF"/>
+		
+		<item parno="0x0121" name="衰减器1" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0x0122" name="衰减器2" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0x0123" name="网络初始化" type="V_STRING" len="3" deci="0" detail="default:init"/>
+		
+		<item parno="0x0128" name="整机控制位" type="V_ENUM_BIT" len="1" deci="0" detail="0,整机自动模式"/>
+		<item parno="0x0129" name="整机风扇控制位" type="V_ENUM_BIT" len="1" deci="0" detail="0,风扇1开;1,风扇1自动;2,风扇2开;3,风扇2自动;4,风扇3开;5,风扇3自动;6,风扇4开;7,风扇4自动"/>
+		
+
+		<item parno="0x012B" name="激励器切换器状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,激励器热备;1,激励器自动切换;2,备激励器输出"/>
+		
+		<item parno="0x0160" name="星期天" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0161" name="星期一" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0162" name="星期二" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0163" name="星期三" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0164" name="星期四" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0165" name="星期五" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0166" name="星期六" type="V_TIMEARRAY" len="6" deci="0" detail="-"/>
+		<item parno="0x0167" name="每天最大开关机条数" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0x0168" name="定时开关机启用" type="V_ENUM" len="1" deci="0" detail="0x00,禁用;0x01,启用"/>
+		
+		<item parno="0x01F8" name="第1组自动报文设置" type="V_USHORTHEXARRAY" len="256" deci="0" detail="-"/>
+		<item parno="0x01F9" name="第2组自动报文设置" type="V_USHORTHEXARRAY" len="256" deci="0" detail="-"/>
+		<item parno="0x01FA" name="第3组自动报文设置" type="V_USHORTHEXARRAY" len="256" deci="0" detail="-"/>
+		<item parno="0x01FB" name="内部联动报文1设置" type="V_USHORTHEXARRAY" len="256" deci="0" detail="-"/>
+		<item parno="0x01FC" name="内部联动报文2设置" type="V_USHORTHEXARRAY" len="256" deci="0" detail="-"/>
+		
+		<item parno="0x0201" name="发射机实测输出功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x0202" name="发射机实测反射功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x0203" name="发射机功放电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x0204" name="发射机功放电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x0205" name="发射机驻波比" type="V_FLOAT" len="4" deci="0" detail="-"/>
+		<item parno="0x0206" name="CPU温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0x0207" name="环境温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0x0210" name="整机工作状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,正在控制动作响应;1,功率小环;2,功率自动;3,定时开关机;4,正式播出;5,远程可控;6,正在发声报警;7,输出停播"/>
+		<item parno="0x0211" name="整机检测状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,输出功率停播(功率＜50%);1,输出功率检测停播;2,主电流异常;3,主电压异常;4,风冷开启;5,码流输入异常"/>
+		<item parno="0x0212" name="整机保护状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,电流异常保护;1,温度异常保护;2,电流降功率保护;3,电流降功率保护;4,温度降功率保护;5,反射降功率保护;6,输入射频信号异常;7,输出异常保护"/>
+		<item parno="0x0213" name="激励器模块通信状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,主激励器通信正常;1,备激励器通信正常"/>
+		<item parno="0x0214" name="功放模块通信状态" type="V_ENUM_BIT" len="4" deci="0" detail="0,功放1;1,功放2;2,功放3;3,功放4;4,功放5;5,功放6;6,功放7;7,功放8;8,功放9;9,功放10;10,功放11;11,功放12;12,功放13;13,功放14;14,功放15;15,功放16"/>
+		<item parno="0x0215" name="电源模块通信状态" type="V_ENUM_BIT" len="4" deci="0" detail="0,电源1;1,电源2;2,电源3;3,电源4;4,电源5;5,电源6;6,电源7;7,电源8;8,电源9;9,电源10;10,电源11;11,电源12;12,电源13;13,电源14;14,电源15;15,电源16"/>
+		
+		<item parno="0x0220" name="功率初始化" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x0221" name="设定输出功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x0222" name="输入功率阈值低" type="V_FLOAT" len="4" deci="0" detail="dBm"/>
+		<item parno="0x0223" name="输入功率阈值高" type="V_FLOAT" len="4" deci="0" detail="dBm"/>
+		<item parno="0x0224" name="反射功率阈值上限" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x0225" name="电流阈值H" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x0226" name="电流阈值HH" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x0227" name="过流重启延时" type="V_USHORT" len="2" deci="0" detail="秒"/>
+		<item parno="0x0228" name="过流重启次数" type="V_UCHAR" len="1" deci="0" detail="次"/>
+		<item parno="0x0229" name="温度阈值H" type="V_UCHAR" len="1" deci="0" detail="℃"/>
+		<item parno="0x022A" name="温度阈值HH" type="V_UCHAR" len="1" deci="0" detail="℃"/>
+		<item parno="0x022B" name="温度阈值FAN1" type="V_UCHAR" len="1" deci="0" detail="℃"/>
+		<item parno="0x022C" name="温度阈值FAN2" type="V_UCHAR" len="1" deci="0" detail="℃"/>
+		<item parno="0x022D" name="温度阈值关风扇" type="V_UCHAR" len="1" deci="0" detail="℃"/>
+		<item parno="0x022E" name="过温判断延时" type="V_USHORT" len="2" deci="0" detail="秒"/>
+		<item parno="0x023C" name="射频输入校正值" type="V_FLOAT" len="4" deci="0" detail="-"/>
+		<item parno="0x023E" name="射频输出校正值" type="V_FLOAT" len="4" deci="0" detail="-"/>
+		<item parno="0x023F" name="射频反射校正值" type="V_FLOAT" len="4" deci="0" detail="-"/>
+		<item parno="0x0240" name="激励模块（器）切换器工作状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,主激励器电源开;1,备激励器电源开;2,主激励器工作正常;3,备激励器工作正常"/>
+		
+		<item parno="0x1000" name="PA1.功放模块说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0x1001" name="PA1.功放输出功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x1002" name="PA1.功放输入功率" type="V_FLOAT" len="4" deci="0" detail="W(dBm)"/>
+		<item parno="0x1003" name="PA1.功放温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0x1004" name="PA1.功放状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,过载;1,过激励;2,过热"/>
+		<item parno="0x101E" name="PA1.推动管工作电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x101F" name="PA1.推动管工作电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x1020" name="PA1.功率管工作电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x1021" name="PA1.功率管1电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x1022" name="PA1.功率管2电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x103E" name="PA1.CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0x103F" name="PA1.风扇转速1" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0x1040" name="PA1.风扇转速2" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0x1041" name="PA1.风扇转速3" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0x1042" name="PA1.风扇转速4" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		
+		<item parno="0x1100" name="PA2.功放模块说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0x1101" name="PA2.功放输出功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0x1102" name="PA2.功放输入功率" type="V_FLOAT" len="4" deci="0" detail="W(dBm)"/>
+		<item parno="0x1103" name="PA2.功放温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0x1104" name="PA2.功放状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,过载;1,过激励;2,过热"/>
+		<item parno="0x111E" name="PA2.推动管工作电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x111F" name="PA2.推动管工作电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x1120" name="PA2.功率管工作电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x1121" name="PA2.功率管1电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x1122" name="PA2.功率管2电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x113E" name="PA2.CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0x113F" name="PA2.风扇转速" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0x1140" name="PA2.风扇转速2" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0x1141" name="PA2.风扇转速3" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0x1142" name="PA2.风扇转速4" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		
+		<item parno="0x8000" name="PW1.电源模块说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0x8001" name="PW1.电源输出电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x8002" name="PW1.电源输出电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x8003" name="PW1.电源温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0x8004" name="PW1.电源状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,过流;1,过热"/>
+		<item parno="0x800E" name="PW1.CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		
+		<item parno="0x8010" name="PW2.电源模块说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0x8011" name="PW2.电源输出电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0x8012" name="PW2.电源输出电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0x8013" name="PW2.电源温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0x8014" name="PW2.电源状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,过流;1,过热"/>
+		<item parno="0x801E" name="PW2.CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		
+		<item parno="0xB000" name="EX1.激励器说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB001" name="EX1.激励器输出功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0xB002" name="EX1.激励器反射功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0xB003" name="EX1.激励器输出频率" type="V_FLOAT" len="4" deci="0" detail="Hz"/>
+		<item parno="0xB004" name="EX1.激励器温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0xB005" name="EX1.激励器ALC电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0xB006" name="EX1.激励器功放电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0xB007" name="EX1.接收频率" type="V_FLOAT" len="4" deci="0" detail="Hz"/>
+		<item parno="0xB008" name="EX1.接收电平" type="V_FLOAT" len="4" deci="0" detail="dBm(dBuV)"/>
+		<item parno="0xB009" name="EX1.接收MER" type="V_FLOAT" len="4" deci="0" detail="dB"/>
+		<item parno="0xB00A" name="EX1.接收工作模式" type="V_ENUM" len="1" deci="0" detail="0x01,模式1;0x02,模式2;0x03,模式3;0x04,模式4;0x05,模式5;0x06,模式6;0x07,模式7"/>
+		<item parno="0xB00B" name="EX1.接收组播IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0xB00C" name="EX1.源地址" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0xB00D" name="EX1.节目流PID" type="V_UINT" len="4" deci="0" detail="-"/>
+		<item parno="0xB00E" name="EX1.接收组播端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0xB010" name="EX1.单频网地址" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0xB011" name="EX1.单频网适配器延时" type="V_FLOAT" len="4" deci="0" detail="us"/>
+		<item parno="0xB012" name="EX1.单频网激励器延时" type="V_FLOAT" len="4" deci="0" detail="us"/>
+		<item parno="0xB013" name="EX1.工作模式" type="V_ENUM" len="1" deci="0" detail="0x01,模式1;0x02,模式2;0x03,模式3;0x04,模式4;0x05,模式5;0x06,模式6;0x07,模式7"/>
+		<item parno="0xB014" name="EX1.码流输入选择" type="V_ENUM" len="1" deci="0" detail="0x00,RF;0x01,ASI-1;0x02,ASI-2;0x03,IP"/>
+		<item parno="0xB015" name="EX1.地数激励器状态" type="V_COMBI_BITS" len="3" deci="0" detail="0,本振失锁,否,是;1,输入码流故障,否,是;2,无法解析SIP,否,是;3,1pps丢失,否,是;4,10M时钟失锁,否,是;5,组网方式,单频网,多频网;6,PN相位,旋转,固定;7,载波方式,多载波,单载波;8..10,符号星座映射,QPSK,4QAM,16QAM,32QAM,64QAM;11..12,前向纠错码,0.4,0.6,0.8;13..14,帧头模式,420,945,595;15,交织模式,240,720;16,导频开关状态,关,开;17,线性预校正,关,开;18,非线性预校正,关,开;19,射频开关,关,开;20,过温状态,正常,过温;21,10M时钟,内,外;22,码流切换,自动,手动;23,激励器状态,正常,报警"/>
+		<item parno="0xB01E" name="EX1.CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB01F" name="EX1.解调输入状态" type="V_ENUM" len="1" deci="0" detail="0x00,未锁定;0x01,锁定;0x02,处理中;0x03,异常"/>
+		<item parno="0xB020" name="EX1.解调输入SNR" type="V_UCHAR" len="1" deci="0" detail="%"/>
+		<item parno="0xB021" name="EX1.解调模块码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB022" name="EX1.激励器TS1输入状态" type="V_ENUM" len="1" deci="0" detail="0x00,未锁定;0x01,锁定;0x02,使用中;0x03,溢出"/>
+		<item parno="0xB023" name="EX1.激励器TS1输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB024" name="EX1.激励器TS2输入状态" type="V_ENUM" len="1" deci="0" detail="0x00,未锁定;0x01,锁定;0x02,使用中;0x03,溢出"/>
+		<item parno="0xB025" name="EX1.激励器TS2输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB026" name="EX1.激励器ETH输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB027" name="EX1.当前模式最大输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB028" name="EX1.数字预校正模式" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0xB029" name="EX1.数字预校正参数" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0xB02A" name="EX1.数字预校正状态" type="V_ENUM" len="1" deci="0" detail="0x00,关闭;0x01,打开;0x02,PA校正中;0x03,FILTER校正中"/>
+		<item parno="0xB02B" name="EX1.射频输出开关" type="V_ENUM" len="1" deci="0" detail="0x00,关闭;0x01,打开"/>
+		<item parno="0xB02C" name="EX1.组网方式" type="V_ENUM" len="1" deci="0" detail="0x00,单频网;0x01,多频网"/>
+		<item parno="0xB02D" name="EX1.PN相位" type="V_ENUM" len="1" deci="0" detail="0x00,旋转;0x01,固定"/>
+		<item parno="0xB02E" name="EX1.载波方式" type="V_ENUM" len="1" deci="0" detail="0x00,多载波;0x01,单载波"/>
+		<item parno="0xB02F" name="EX1.符号星座映射" type="V_ENUM" len="1" deci="0" detail="0x00,QPSK;0x01,4QAM-NR;0x02,16QAM;0x03,32QAM;0x04,64QAM"/>
+		<item parno="0xB030" name="EX1.PN前向纠错码" type="V_ENUM" len="1" deci="0" detail="0x00,0.4;0x01,0.6;0x02,0.8"/>
+		<item parno="0xB031" name="EX1.帧头模式" type="V_ENUM" len="1" deci="0" detail="0x00,420;0x01,945;0x02,595"/>
+		<item parno="0xB032" name="EX1.交织模式" type="V_ENUM" len="1" deci="0" detail="0x00,240;0x01,720"/>
+		<item parno="0xB033" name="EX1.导频开关" type="V_ENUM" len="1" deci="0" detail="0x00,关;0x01,开"/>
+		<item parno="0xB034" name="EX1.10M时钟" type="V_ENUM" len="1" deci="0" detail="0x00,内部;0x01,外部"/>
+		<item parno="0xB035" name="EX1.码流切换方式" type="V_ENUM" len="1" deci="0" detail="0x00,自动;0x01,手动"/>
+		<item parno="0xB036" name="EX1.激励器输出功率" type="V_FLOAT" len="4" deci="0" detail="dBm"/>
+		<item parno="0xB037" name="EX1.激励器输出功率" type="V_FLOAT" len="4" deci="0" detail="%"/>
+
+		<item parno="0xB040" name="EX2.激励器说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB041" name="EX2.激励器输出功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0xB042" name="EX2.激励器反射功率" type="V_FLOAT" len="4" deci="0" detail="W"/>
+		<item parno="0xB043" name="EX2.激励器输出频率" type="V_FLOAT" len="4" deci="0" detail="Hz"/>
+		<item parno="0xB044" name="EX2.激励器温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0xB045" name="EX2.激励器ALC电压" type="V_FLOAT" len="4" deci="0" detail="V"/>
+		<item parno="0xB046" name="EX2.激励器功放电流" type="V_FLOAT" len="4" deci="0" detail="A"/>
+		<item parno="0xB047" name="EX2.接收频率" type="V_FLOAT" len="4" deci="0" detail="Hz"/>
+		<item parno="0xB048" name="EX2.接收电平" type="V_FLOAT" len="4" deci="0" detail="dBm(dBuV)"/>
+		<item parno="0xB049" name="EX2.接收MER" type="V_FLOAT" len="4" deci="0" detail="dB"/>
+		<item parno="0xB04A" name="EX2.接收工作模式" type="V_ENUM" len="1" deci="0" detail="0x01,模式1;0x02,模式2;0x03,模式3;0x04,模式4;0x05,模式5;0x06,模式6;0x07,模式7"/>
+		<item parno="0xB04B" name="EX2.接收组播IP" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0xB04C" name="EX2.源地址" type="V_UINT_IP" len="4" deci="0" detail="-"/>
+		<item parno="0xB04D" name="EX2.节目流PID" type="V_UINT" len="4" deci="0" detail="-"/>
+		<item parno="0xB04E" name="EX2.接收组播端口" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0xB050" name="EX2.单频网地址" type="V_USHORT" len="2" deci="0" detail="-"/>
+		<item parno="0xB051" name="EX2.单频网适配器延时" type="V_FLOAT" len="4" deci="0" detail="us"/>
+		<item parno="0xB052" name="EX2.单频网激励器延时" type="V_FLOAT" len="4" deci="0" detail="us"/>
+		<item parno="0xB053" name="EX2.工作模式" type="V_ENUM" len="1" deci="0" detail="0x01,模式1;0x02,模式2;0x03,模式3;0x04,模式4;0x05,模式5;0x06,模式6;0x07,模式7"/>
+		<item parno="0xB054" name="EX2.码流输入选择" type="V_ENUM" len="1" deci="0" detail="0x00,RF;0x01,ASI-1;0x02,ASI-2;0x03,IP"/>
+		<item parno="0xB055" name="EX2.地数激励器状态" type="V_COMBI_BITS" len="3" deci="0" detail="0,本振失锁,否,是;1,输入码流故障,否,是;2,无法解析SIP,否,是;3,1pps丢失,否,是;4,10M时钟失锁,否,是;5,组网方式,单频网,多频网;6,PN相位,旋转,固定;7,载波方式,多载波,单载波;8..10,符号星座映射,QPSK,4QAM,16QAM,32QAM,64QAM;11..12,前向纠错码,0.4,0.6,0.8;13..14,帧头模式,420,945,595;15,交织模式,240,720;16,导频开关状态,关,开;17,线性预校正,关,开;18,非线性预校正,关,开;19,射频开关,关,开;20,过温状态,正常,过温;21,10M时钟,内,外;22,码流切换,自动,手动;23,激励器状态,正常,报警"/>
+		<item parno="0xB05E" name="EX2.CPU序列号" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB05F" name="EX2.解调输入状态" type="V_ENUM" len="1" deci="0" detail="0x00,未锁定;0x01,锁定;0x02,处理中;0x03,异常"/>
+		<item parno="0xB060" name="EX2.解调输入SNR" type="V_UCHAR" len="1" deci="0" detail="%"/>
+		<item parno="0xB061" name="EX2.解调模块码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB062" name="EX2.激励器TS1输入状态" type="V_ENUM" len="1" deci="0" detail="0x00,未锁定;0x01,锁定;0x02,使用中;0x03,溢出"/>
+		<item parno="0xB063" name="EX2.激励器TS1输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB064" name="EX2.激励器TS2输入状态" type="V_ENUM" len="1" deci="0" detail="0x00,未锁定;0x01,锁定;0x02,使用中;0x03,溢出"/>
+		<item parno="0xB065" name="EX2.激励器TS2输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB066" name="EX2.激励器ETH输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB067" name="EX2.当前模式最大输入码率" type="V_FLOAT" len="4" deci="0" detail="Mbps"/>
+		<item parno="0xB068" name="EX2.数字预校正模式" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0xB069" name="EX2.数字预校正参数" type="V_UCHAR" len="1" deci="0" detail="-"/>
+		<item parno="0xB06A" name="EX2.数字预校正状态" type="V_ENUM" len="1" deci="0" detail="0x00,关闭;0x01,打开;0x02,PA校正中;0x03,FILTER校正中"/>
+		<item parno="0xB06B" name="EX2.射频输出开关" type="V_ENUM" len="1" deci="0" detail="0x00,关闭;0x01,打开"/>
+		<item parno="0xB06C" name="EX2.组网方式" type="V_ENUM" len="1" deci="0" detail="0x00,单频网;0x01,多频网"/>
+		<item parno="0xB06D" name="EX2.PN相位" type="V_ENUM" len="1" deci="0" detail="0x00,旋转;0x01,固定"/>
+		<item parno="0xB06E" name="EX2.载波方式" type="V_ENUM" len="1" deci="0" detail="0x00,多载波;0x01,单载波"/>
+		<item parno="0xB06F" name="EX2.符号星座映射" type="V_ENUM" len="1" deci="0" detail="0x00,QPSK;0x01,4QAM-NR;0x02,16QAM;0x03,32QAM;0x04,64QAM"/>
+		<item parno="0xB070" name="EX2.PN前向纠错码" type="V_ENUM" len="1" deci="0" detail="0x00,0.4;0x01,0.6;0x02,0.8"/>
+		<item parno="0xB071" name="EX2.帧头模式" type="V_ENUM" len="1" deci="0" detail="0x00,420;0x01,945;0x02,595"/>
+		<item parno="0xB072" name="EX2.交织模式" type="V_ENUM" len="1" deci="0" detail="0x00,240;0x01,720"/>
+		<item parno="0xB073" name="EX2.导频开关" type="V_ENUM" len="1" deci="0" detail="0x00,关;0x01,开"/>
+		<item parno="0xB074" name="EX2.10M时钟" type="V_ENUM" len="1" deci="0" detail="0x00,内部;0x01,外部"/>
+		<item parno="0xB075" name="EX2.码流切换方式" type="V_ENUM" len="1" deci="0" detail="0x00,自动;0x01,手动"/>	
+		<item parno="0xB076" name="EX2.激励器输出功率" type="V_FLOAT" len="4" deci="0" detail="dBm"/>
+		<item parno="0xB077" name="EX2.激励器输出功率" type="V_FLOAT" len="4" deci="0" detail="%"/>	
+	
+		<item parno="0xB080" name="激励切换器说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB081" name="激励切换器工作状态" type="V_ENUM_BIT" len="1" deci="0" detail="0,主激励器电源开;1,备激励器电源开;2,主激励器工作状态;3,备激励器工作状态"/>
+		
+		<item parno="0xB0A0" name="风机说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB0A1" name="风机风压" type="V_FLOAT" len="4" deci="0" detail="Bar"/>
+		<item parno="0xB0A2" name="风机流量" type="V_FLOAT" len="4" deci="0" detail="m3/s"/>
+		<item parno="0xB0A3" name="风机冷却状态" type="V_ENUM_BIT" len="4" deci="0" detail="0,风机开;7,风机故障"/>
+		<item parno="0xB0A4" name="风机转速1" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0xB0A5" name="风机转速2" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0xB0A6" name="风机转速3" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		<item parno="0xB0A7" name="风机转速4" type="V_FLOAT" len="4" deci="0" detail="RPM"/>
+		
+		<item parno="0xB0D0" name="液冷说明" type="V_STRING" len="32" deci="0" detail="-"/>
+		<item parno="0xB0D1" name="液冷入液温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0xB0D2" name="液冷出液温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0xB0D3" name="液冷冷却后温度" type="V_FLOAT" len="4" deci="0" detail="℃"/>
+		<item parno="0xB0D4" name="液冷液体压力" type="V_FLOAT" len="4" deci="0" detail="Bar"/>
+		<item parno="0xB0D5" name="液冷液体流量" type="V_FLOAT" len="4" deci="0" detail="m3/s"/>
+
+	</parameter>
+</tables>

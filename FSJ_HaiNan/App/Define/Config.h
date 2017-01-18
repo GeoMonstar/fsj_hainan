@@ -90,4 +90,6 @@
 #define kJsonArr     @"kJsonArr"
 #define kMapDic      @"kMapDic"
 #define kfsjIdArr      @"kfsjIdArr"
+/**************Class**************/
+#define Placeholder @"请输入发射机名称或IP"
 #endif /* Config_h */

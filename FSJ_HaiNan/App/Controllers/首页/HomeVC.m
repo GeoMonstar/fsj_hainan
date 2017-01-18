@@ -9,36 +9,62 @@
 #import "HomeVC.h"
 #import "HomeCell.h"
 #import "BaseViewController.h"
-@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource>
-
-
-
+@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>{
+    
+    BOOL isDraggingDown;
+    
+}
+@property (strong, nonatomic) NSMutableArray *lenovoTableArray;
 @end
 
 @implementation HomeVC
 - (void)viewWillAppear:(BOOL)animated{
     self.leftBigBtn.hidden = NO;
     self.searchView.hidden = NO;
+    self.mysearchBar.delegate = self;
     self.rightBtn.hidden = NO;
-    [self initData];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self initData];
+    WeakSelf(weakself);
+    self.mytableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadDataWhenDraggingDown];
+    }];
+
 }
 - (void)initData{
     [self.dataArray removeAllObjects];
     NSMutableArray *fsjIdArr = (NSMutableArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
     for (NSString *idStr in fsjIdArr) {
-       OneFSJModel * model=  (OneFSJModel *)[[EGOCache globalCache]objectForKey:idStr];
-        
-        [self.dataArray addObject:model.bodyValueDic];
-         [self.mytableView reloadData];
+        OneFSJModel * model=   [OneFSJModel getOneFSJWithFsjID:idStr];
+        if (model) {
+            [self.dataArray addObject:model.bodyValueDic];
+            [self.mytableView reloadData];
+            [self endRefreshing];
+        }
     }
-   
 }
--(void)createUI{
-    
+- (void) loadDataWhenDraggingDown {
+    isDraggingDown = YES;
+    [self initData];
+}
+// 触底加载数据的方法
+- (void) loadDataWhenReachingBottom {
+    isDraggingDown = NO;
+    [self initData];
+}
+// 结束下拉或上拉刷新状态
+- (void) endRefreshing {
+    if (isDraggingDown) {
+        [self.mytableView.mj_header endRefreshing];
+    }
+    else {
+        [self.mytableView.mj_footer endRefreshing];
+    }
+}
+- (void)createUI{
     //tableview
     self.mytableView.delegate = self;
     self.mytableView.dataSource= self;
@@ -46,15 +72,12 @@
     [self.mytableView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"HomeCell"];
     [self.view addSubview:self.mytableView];
     //注册
-    
     UIButton *regBtn = [UIButton createButtonwithFrame:CGRectZero andTitle:@"注册" andTitleFont:12 andTitleColor:[UIColor blackColor] andBgColor:ThemeColor];
     [[regBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         UIStoryboard  *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *vc = [board instantiateViewControllerWithIdentifier:@"BaseViewController"];
         [self.navigationController pushViewController:vc animated:YES];
-       
     }];
-    
     regBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     regBtn.layer.cornerRadius = 30;
     regBtn.layer.masksToBounds = YES;
@@ -68,6 +91,52 @@
     }];
     
 }
+
+#pragma mark -- searchbar
+- (void)rightBtnClicked:(UIButton *)sender{
+    self.mysearchBar.text = @"";
+    [self initData];
+    [self.mysearchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    [self initData];
+    
+    for (NSDictionary *dic in self.dataArray) {
+        //设备名称和ip
+        if ([[dic valueForKey:@"0200"] containsString:searchText] || [[dic valueForKey:@"2300"] containsString:searchText]) {
+            [self.lenovoTableArray addObject:dic];
+        }
+    }
+    self.dataArray =  [self.lenovoTableArray mutableCopy];
+    
+    [self.lenovoTableArray removeAllObjects];
+    [self.mytableView reloadData];
+    
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;{
+    
+    if ([self.mysearchBar.text isEqualToString:@""]) {
+        return;
+    }
+    else{
+        for (NSDictionary *dic in self.dataArray) {
+            if ([[dic valueForKey:@"0200"] containsString:searchBar.text] || [[dic valueForKey:@"2300"] containsString:searchBar.text]) {
+                [self.lenovoTableArray addObject:dic];
+                
+            }
+        }
+        self.dataArray =  [self.lenovoTableArray mutableCopy];
+        [self.lenovoTableArray removeAllObjects];
+        [self.mytableView reloadData];
+    }
+    
+    [self.mysearchBar resignFirstResponder];
+    [self.view endEditing:YES];
+    
+}
+#pragma mark -- tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 130;
 }
@@ -90,11 +159,14 @@
         VVDLog(@"%ld",index);
     };
     return cell;
-
 }
-
+- (NSMutableArray *)lenovoTableArray{
+    if (!_lenovoTableArray) {
+        _lenovoTableArray = @[].mutableCopy;
+    }
+    return _lenovoTableArray;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 @end

@@ -13,7 +13,9 @@ typedef union { float f; uint32_t i; } FloatInt;
 
 @implementation ParameterModel
 + (instancetype)initWithDictionary:(NSDictionary *)dictionary{
-    ParameterModel *model = [ParameterModel mj_objectWithKeyValues: dictionary];
+    //用yy代替mj
+  //  ParameterModel *model = [ParameterModel mj_objectWithKeyValues: dictionary];
+     ParameterModel *model = [ParameterModel yy_modelWithDictionary: dictionary];
     return model;
 }
 + (ParameterModel *)getModelByparno:(NSString *)parno{
@@ -34,41 +36,23 @@ typedef union { float f; uint32_t i; } FloatInt;
     }
     return nil;
 }
-//+ (NSDictionary *)modelCustomPropertyMapper {
-//    return @{@"deci" : @"-deci",
-//             @"detail" : @"-detail",
-//             @"len" : @"-len",
-//             @"name" : @"-name",
-//             @"parno":@"-parno",
-//             @"type":@"-type"
-//             };
-//}
-//- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
-//    NSString *nameStr = dic[@"name"];
-//    _parno = [nameStr ReverseStr];
-//    return YES;
-//}
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName{
-    
-    return @{@"deci":@"-deci",@"detail":@"-detail",@"len":@"-len",@"name":@"-name",@"parno":@"-parno",@"type":@"-type"};
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"deci" : @"-deci",
+             @"detail" : @"-detail",
+             @"len" : @"-len",
+             @"name" : @"-name",
+             @"parno":@"-parno",
+             @"type":@"-type"
+             };
 }
-- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property{
-    NSString *oldValueStr = (NSString *)oldValue;
-    //"0x0001"转0100
-    if ([property.name isEqualToString: @"parno"]) {
-//         NSMutableString *mutstr = [NSMutableString string];
-//        for ( NSInteger i = oldValueStr.length/2-1; i > 0; i --) {
-//            NSString *tempstr =  [oldValueStr substringWithRange:NSMakeRange(i*2, 2)];
-//            tempstr= [tempstr lowercaseString];
-//            [mutstr appendString:tempstr];
-//        }
-        return [oldValueStr ReverseStr];
-    }
-    
-    
-    return oldValue;
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
+    NSString *nameStr = dic[@"-parno"];
+    _parno = [nameStr ReverseStr];
+    return YES;
 }
+
+
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key{
     
 }

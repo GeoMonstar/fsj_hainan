@@ -14,6 +14,7 @@
 @property (nonatomic, copy)NSData* headData;
 
 @property (nonatomic, copy)NSString* ShebeiIP;
+
 @property (nonatomic, strong)FSJUdpSocketTool *Udptool;
 
 @end

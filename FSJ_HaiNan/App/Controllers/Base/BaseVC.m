@@ -9,7 +9,7 @@
 #import "BaseVC.h"
 #import "PersonVC.h"
 
-#define Placeholder @"请输入发射机名称或IP"
+
 @interface BaseVC ()
 
 
@@ -118,11 +118,6 @@
 - (void)leftBtnClicked:(UIButton *)sender{
      VVDLog(@"返回");
     [self.navigationController popViewControllerAnimated:YES];
-}
-- (void)rightBtnClicked:(UIButton *)sender{
-   
-    VVDLog(@"取消");
-    [self.mysearchBar resignFirstResponder];
 }
 
 

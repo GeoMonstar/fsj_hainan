@@ -29,7 +29,6 @@
     
    
     //保存 参数 名字映射字典
-   
         NSMutableDictionary *dic = @{}.mutableCopy;
         for (NSDictionary *tempdic in (NSArray *)[[EGOCache globalCache]objectForKey:kJsonArr]) {
             ParameterModel *model = [ParameterModel initWithDictionary:tempdic];
@@ -45,16 +44,14 @@
     //connectFSJ
     NSArray *fsjIdArr = (NSArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
     for (NSString *idStr in fsjIdArr) {
-        OneFSJModel *model = (OneFSJModel *)[[EGOCache globalCache]objectForKey:idStr];
+        OneFSJModel *model = [OneFSJModel getOneFSJWithFsjID:idStr];;
         if (model) {
             [model updateFSJModel];
-
         }
     }
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [JQInitializeTabbarController initializeTabbarControllerReturnTBC];
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

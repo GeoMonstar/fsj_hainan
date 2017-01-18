@@ -8,15 +8,10 @@
 
 #import "ViewController.h"
 #import "DOPDropDownMenu.h"
-//#import "ParametersList.h"
-//#import "ReadFrameBody.h"
-//#import "FSJUdpSocketTool.h"
-//#import "SendFrameHead.h"
 #import "ReadFrameBody.h"
 #import "NSString+NSStringHexToBytes.h"
 #import "ViewController.h"
-//#import "WriteFrameBody.h"
-//#import "SearchFrameBody.h"
+
 @interface ViewController ()<DOPDropDownMenuDataSource, DOPDropDownMenuDelegate,UITextFieldDelegate>{
    
 }
@@ -85,7 +80,6 @@
         if (row == 1) {
             return self.SecondArr.count;
         }
-        
     }
     return 0;
 }
@@ -99,14 +93,12 @@
         if (indexPath.row == 1) {
             return self.SecondArr[indexPath.item];
         }
-        
     }
     return nil;
 }
 - (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath
 {
     [self.valueTF endEditing:YES];
-    
     if (indexPath.row ==2) {
         [self sendMessageWithFunctionCode:self.mainArrValue[indexPath.row] andParamArr:nil];
     }

@@ -49,9 +49,7 @@ static FSJTcpSocketTool *sharedInstance = nil;
 //    [self.tcpSocket writeData:data withTimeout:-1 tag:0];
 //}
 - (void)tcpSendData:(NSData *)data{
-    
     [self.tcpSocket writeData:data withTimeout:TIME_OUT tag:1];
-    
 }
 //得到数据
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag

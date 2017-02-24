@@ -10,20 +10,33 @@
 #import <Foundation/Foundation.h>
 
 @interface ReciveFrameHead : NSObject
-
-//命令类型吗
+/**
+ * @brief 命令类型吗
+ */
 @property (nonatomic,copy)NSString *head;
-//站台编码
+/**
+ * @brief 站台编码
+ */
 @property (nonatomic,copy)NSString *fsjAddressCode;
-//设备类型
+/**
+ * @brief 设备类型
+ */
 @property (nonatomic,copy)NSString *fsjTypeCode;
-//厂家编号
+/**
+ * @brief 厂家编号
+ */
 @property (nonatomic,copy)NSString *companyCode;
-//硬件版本号
+/**
+ * @brief 硬件版本号
+ */
 @property (nonatomic,copy)NSString *hardwareVersionCode;
-//软件版本号
+/**
+ * @brief 软件版本号
+ */
 @property (nonatomic,copy)NSString *softwareVersionCode;
-//预留字段
+/**
+ * @brief 预留字段
+ */
 @property (nonatomic,copy)NSString *extendCode;
 
 -(instancetype)initWithHead:(NSString *)head

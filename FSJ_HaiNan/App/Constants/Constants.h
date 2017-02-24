@@ -6,7 +6,7 @@
 //  Copyright © 2015年 newdoone. All rights reserved.
 //
 
-
+//全局符号表
 extern NSString *const UserIdentifierDefault;
 extern NSString *const AuthTokenDefault;
 

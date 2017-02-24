@@ -136,6 +136,7 @@
             }];
          });
     }
+    
 }
 
 #pragma mark - 公共方法
@@ -144,6 +145,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         self.state = MJRefreshStateIdle;
     });
+
+    
 }
 
 - (NSDate *)lastUpdatedTime

@@ -15,13 +15,13 @@
 @property (nonatomic, assign)UInt16  fsjPort;
 
 /**
- *  保存返回数据
+ *  @brief 保存返回数据
  */
 @property (nonatomic, strong)NSDictionary  *bodyValueDic;
 
 @property (nonatomic, strong)NSDictionary  *headValueDic;
 /**
- *  保存发送数据
+ *  @brief 保存发送数据
  */
 @property (nonatomic, strong)NSData  *sendData;
 
@@ -32,7 +32,7 @@
 
 
 /**
- *  获取Head值
+ *  @brief 获取Head值
  *
  *  @param parno 参数序号
  *  @return 参数name
@@ -40,20 +40,20 @@
 - (NSString *)getHeadbyParno:(NSString *)parno;
 
 /**
- *  获取Body值
+ *  @brief 获取Body值
  *
  *  @param parno 参数序号
  *  @return 参数值
  */
 - (NSString *)getBodybyParno:(NSString *)parno;
 /**
- *  获取Body值 汉字名称
+ *  @brief 获取Body值 汉字名称
  *
  *  @return Key为name的字典
  */
 - (NSDictionary *)getNameDic;
 /**
- *  根据发射机host获取模型
+ *  @brief 根据发射机host获取模型
  *
  *  @param  fsjID 发射机host
  *

@@ -10,43 +10,46 @@
 
 @interface BaseVC : UIViewController
 /**
- * 导航层
+ *  @brief 导航层
  */
 @property (nonatomic,strong)UIView *navView;
 /**
- * 标题
+ *  @brief 标题
  */
 @property (nonatomic,strong)UILabel *navTitle;
 /**
- * 搜索栏
+ *  @brief 搜索栏
  */
 @property (nonatomic,strong)UISearchBar *mysearchBar;
 /**
- * 返回键
+ *  @brief 返回键
  */
 @property (nonatomic,strong)UIButton *leftBtn;
 /**
- * 搜索层 
+ *  @brief 搜索层
  */
 @property (nonatomic,strong)UIView * searchView;
 /**
- * 取消按钮
+ *  @brief 取消按钮
  */
 @property (nonatomic,strong)UIButton *rightBtn;
 /**
- * 个人
+ *  @brief 个人
  */
 @property (nonatomic,strong)UIButton *leftBigBtn;
+///**
+// *  @brief 状态
+// */
+//@property (nonatomic,strong)UIView *statusView;
 /**
- * 基本tableview
+ *  @brief 基本tableview
  */
 @property (nonatomic,strong)UITableView *mytableView;
 /**
- * 基本dataArray
+ *  @brief 基本dataArray
  */
 @property (nonatomic,strong)NSMutableArray *dataArray;
 
 - (void)createUI;
-- (void)initData;
 - (void)rightBtnClicked:(UIButton *)sender;
 @end

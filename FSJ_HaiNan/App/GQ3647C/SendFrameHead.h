@@ -9,12 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @interface SendFrameHead : NSObject
-//命令类型吗
+/**
+ * @brief 命令类型吗
+ */
 @property (nonatomic,copy)NSString *head;
-//站台编码
+/**
+ * @brief 站台编码
+ */
 @property (nonatomic,copy)NSString *fsjAddressCode;
-//预留字段
+/**
+ * @brief 预留字段
+ */
 @property (nonatomic,copy)NSString *extendCode;
+
 
 -(instancetype)initWithHead:(NSString *)head FsjAddressCode:(NSString *)fsjAddressCode ExtendCode:(NSString *)extendCode;
 /**

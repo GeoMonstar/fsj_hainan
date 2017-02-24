@@ -9,10 +9,9 @@
 #import "HomeVC.h"
 #import "HomeCell.h"
 #import "BaseViewController.h"
-@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>{
+@interface HomeVC ()<UISearchBarDelegate>{
     
     BOOL isDraggingDown;
-    
 }
 @property (strong, nonatomic) NSMutableArray *lenovoTableArray;
 @end
@@ -23,28 +22,32 @@
     self.searchView.hidden = NO;
     self.mysearchBar.delegate = self;
     self.rightBtn.hidden = NO;
+    [self initData];
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initData];
+    
     WeakSelf(weakself);
     self.mytableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakself loadDataWhenDraggingDown];
     }];
-
 }
 - (void)initData{
     [self.dataArray removeAllObjects];
     NSMutableArray *fsjIdArr = (NSMutableArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
-    for (NSString *idStr in fsjIdArr) {
-        OneFSJModel * model=   [OneFSJModel getOneFSJWithFsjID:idStr];
-        if (model) {
-            [self.dataArray addObject:model.bodyValueDic];
-            [self.mytableView reloadData];
-            [self endRefreshing];
+    if (fsjIdArr.count >0) {
+       
+        for (NSString *idStr in fsjIdArr) {
+            OneFSJModel * model=   [OneFSJModel getOneFSJWithFsjID:idStr];
+            if (model) {
+                [self.dataArray addObject:model.bodyValueDic];
+            }
         }
     }
+     [self endRefreshing];
+     [self.mytableView reloadData];
+   
 }
 - (void) loadDataWhenDraggingDown {
     isDraggingDown = YES;
@@ -66,11 +69,10 @@
 }
 - (void)createUI{
     //tableview
-    self.mytableView.delegate = self;
-    self.mytableView.dataSource= self;
     self.mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.mytableView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"HomeCell"];
-    [self.view addSubview:self.mytableView];
+    self.mytableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    [self.view insertSubview:self.mytableView belowSubview:self.navView];
     //注册
     UIButton *regBtn = [UIButton createButtonwithFrame:CGRectZero andTitle:@"注册" andTitleFont:12 andTitleColor:[UIColor blackColor] andBgColor:ThemeColor];
     [[regBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -110,7 +112,6 @@
         }
     }
     self.dataArray =  [self.lenovoTableArray mutableCopy];
-    
     [self.lenovoTableArray removeAllObjects];
     [self.mytableView reloadData];
     
@@ -124,7 +125,6 @@
         for (NSDictionary *dic in self.dataArray) {
             if ([[dic valueForKey:@"0200"] containsString:searchBar.text] || [[dic valueForKey:@"2300"] containsString:searchBar.text]) {
                 [self.lenovoTableArray addObject:dic];
-                
             }
         }
         self.dataArray =  [self.lenovoTableArray mutableCopy];

@@ -19,6 +19,7 @@ typedef union { float f; uint32_t i; } FloatInt;
     NSString *extendCode;
     NSData *adata;
     FSJTcpSocketTool *tcptool;
+    FSJUdpSocketTool *udptool;
 }
 @property (weak, nonatomic) IBOutlet UITextField *hostAddrTF;
 @property (weak, nonatomic) IBOutlet UITextField *portTF;
@@ -93,6 +94,12 @@ typedef union { float f; uint32_t i; } FloatInt;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    udptool = [[FSJUdpSocketTool alloc]init];
+    udptool.serverPort = 8888;
+    udptool.hostAddress = @"255.255.255.255";
+    
     tcptool = [[FSJTcpSocketTool alloc]init];
     
     tcptool.socketHost = self.hostAddrTF.text;
@@ -267,14 +274,14 @@ typedef union { float f; uint32_t i; } FloatInt;
 
 //模拟注册 
 - (IBAction)gotoNext:(id)sender {
+    [MBProgressHUD showMessage:@"绑定中"];
     for (UITextField *TF in self.view.subviews) {
         [TF endEditing:YES];
     }
     [tcptool DisconnectSocket];
     [tcptool socketConHost];
-    SendFrameHead *head = [[SendFrameHead alloc]initWithHead:@"26" FsjAddressCode:zhantaiCode ExtendCode:extendCode];
-    NSData *headData =  [head createHeadData];
-    
+   
+
     
     //测试读所以参数
     NSMutableArray *mutArr = @[].mutableCopy;
@@ -284,7 +291,8 @@ typedef union { float f; uint32_t i; } FloatInt;
     }
     
     ReadFrameBody *body = [[ReadFrameBody alloc]initWithFsjID:fsjAddr FunctionCode:@"03" ParameterID:mutArr];
-    
+    SendFrameHead *head = [[SendFrameHead alloc]initWithHead:@"26" FsjAddressCode:zhantaiCode ExtendCode:extendCode];
+    NSData *headData =  [head createHeadData];
     NSMutableData *mutData = [[NSMutableData alloc]initWithData:headData];
     NSData *bodyData = [body readData];
     
@@ -306,14 +314,18 @@ typedef union { float f; uint32_t i; } FloatInt;
     [[EGOCache globalCache]setObject:(NSMutableArray *)resultArray forKey:kfsjIdArr];
     
     tcptool.reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
+        [MBProgressHUD hideHUD];
         //NSLog(@"recv data from %@:%d -- %@   %ld", host, port,str,str.length);
         OneFSJModel *model = [[OneFSJModel alloc]initWithfsjHost:host andfsjPort:port andreadData:data andsendData:mutData];
         //保存本地
         [[EGOCache globalCache]setObject:(OneFSJModel *)model forKey:host];
         VVDLog(@"%@",model.bodyValueDic);
+        [MBProgressHUD showSuccess:@"绑定成功"];
     };
+
     tcptool.socketDelegate = self;
-    
+
+
 }
 - (void)socketReadedData:(id)data fromHost:(NSString *)host andPort:(UInt16)port{
     
@@ -324,15 +336,11 @@ typedef union { float f; uint32_t i; } FloatInt;
         }
     }
 }
-//    ViewController *vc = [[ViewController alloc]init];
-//    vc.headData = headData;
-//    vc.ShebeiIP = fsjAddr;
-//    vc.Udptool = udptool;
-//    [self.navigationController pushViewController:vc animated:YES];
 
-//    tcp
-//    [[FSJTcpSocketTool sharedInstance]tcpSendData:adata];
-//    [FSJTcpSocketTool sharedInstance].reciveTcpDataBlock = ^(NSData *data,NSString *host,UInt16 port){
-//        NSLog(@"receive data from %@ %d data == %@",host,port,data);
-//    };
+//ViewController *vc = [[ViewController alloc]init];
+//vc.headData = headData;
+//vc.ShebeiIP = fsjAddr;
+//vc.Udptool = udptool;
+//
+//[self.navigationController pushViewController:vc animated:YES];
 @end

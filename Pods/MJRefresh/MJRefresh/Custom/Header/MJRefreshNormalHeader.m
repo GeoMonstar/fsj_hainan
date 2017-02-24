@@ -93,6 +93,7 @@
     // 根据状态做事情
     if (state == MJRefreshStateIdle) {
         if (oldState == MJRefreshStateRefreshing) {
+            
             self.arrowView.transform = CGAffineTransformIdentity;
             
             [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{

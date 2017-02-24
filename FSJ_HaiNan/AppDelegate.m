@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "JQInitializeTabbarController.h"
-
+#import "IQKeyboardManager.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +16,6 @@
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //获取本地Json
-    
         NSString * jsonPath = [[NSBundle mainBundle]pathForResource:@"CG3647C" ofType:@"json"];
         NSData * jsonData = [[NSData alloc]initWithContentsOfFile:jsonPath];
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
@@ -27,7 +26,6 @@
         [mutDic setObject:[dic objectForKey:@"-name"] forKey:[dic objectForKey:@"-parno"]];
     }
     
-   
     //保存 参数 名字映射字典
         NSMutableDictionary *dic = @{}.mutableCopy;
         for (NSDictionary *tempdic in (NSArray *)[[EGOCache globalCache]objectForKey:kJsonArr]) {
@@ -39,7 +37,6 @@
     if (![[EGOCache globalCache]hasCacheForKey:kfsjIdArr]) {
         NSMutableArray *fsjIDArr = @[].mutableCopy;
         [[EGOCache globalCache]setObject:(NSMutableArray *)fsjIDArr forKey:kfsjIdArr];
-
     }
     //connectFSJ
     NSArray *fsjIdArr = (NSArray *)[[EGOCache globalCache]objectForKey:kfsjIdArr];
@@ -49,10 +46,20 @@
             [model updateFSJModel];
         }
     }
+   
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [JQInitializeTabbarController initializeTabbarControllerReturnTBC];
     [self.window makeKeyAndVisible];
+    [self configurationIQKeyboard];
     return YES;
+}
+// 配置IQKeyboardManager
+- (void)configurationIQKeyboard
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = NO;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -60,8 +67,6 @@
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
    
- 
-    
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {

@@ -50,3 +50,14 @@ UInt16 count_CRC(unsigned char *addr, UInt16 num)
     }
     return CRC;
 }
+UInt16 count_BCC(unsigned char *addr, UInt16 num)
+{
+   
+    
+    unsigned char x;
+    x= 0;
+    for (int i = 0; i<num; i++) {x^=addr[i];};
+    
+    return x;
+}
+

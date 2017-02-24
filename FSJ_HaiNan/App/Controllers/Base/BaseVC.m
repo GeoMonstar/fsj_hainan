@@ -10,16 +10,17 @@
 #import "PersonVC.h"
 
 
-@interface BaseVC ()
+@interface BaseVC ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 
 @end
 
 @implementation BaseVC
+
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-     [self initData];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,9 +35,7 @@
 - (void)createUI{
     
 }
-- (void)initData{
 
-}
 #pragma mark --定制导航栏
 - (void)createNav{
 
@@ -64,7 +63,8 @@
     [self.navView addSubview:self.searchView];
     
     [self.navTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.centerY.equalTo(self.navView);
+        make.centerX.equalTo(self.navView);
+        make.centerY.equalTo(self.navView).offset(10);
         make.width.mas_equalTo(150);
         make.height.mas_equalTo(35);
 
@@ -73,31 +73,32 @@
         make.leading.equalTo(self.navView.mas_leading).offset(12);
         make.height.mas_equalTo(20);
         make.width.mas_equalTo(15);
-        make.centerY.equalTo(self.navView.mas_centerY);
+        make.centerY.equalTo(self.navView.mas_centerY).offset(10);
     }];
 
     [self.leftBigBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.navView.mas_leading).offset(7);
         make.height.mas_equalTo(30);
         make.width.mas_equalTo(30);
-        make.centerY.equalTo(self.navView.mas_centerY);
+        make.centerY.equalTo(self.navView.mas_centerY).offset(10);
     }];
 
     [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.navView.mas_trailing).offset(-5);
         make.height.mas_equalTo(30);
         make.width.mas_equalTo(40);
-        make.centerY.equalTo(self.navView.mas_centerY);
+        make.centerY.equalTo(self.navView.mas_centerY).offset(10);
     }];
 
     [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.leftBigBtn.mas_trailing).offset(5);
         make.trailing.equalTo(self.rightBtn.mas_leading).offset(0);
         make.height.mas_equalTo(35);
-        make.centerY.equalTo(self.navView.mas_centerY);
+        make.centerY.equalTo(self.navView.mas_centerY).offset(10);
     }];
     [self.mysearchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.leading.trailing.equalTo(self.searchView);
+        
     }];
     
     self.leftBigBtn.hidden = YES;
@@ -183,14 +184,16 @@
 }
 - (UIView *)navView{
     if (!_navView) {
-        _navView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, WIDTH, 44)];
+        _navView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 64)];
         _navView.backgroundColor =ThemeColor;
     }
     return _navView;
 }
 - (UITableView *)mytableView{
     if (!_mytableView) {
-        _mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, WIDTH, HEIGTH) style:UITableViewStyleGrouped];
+        _mytableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, HEIGTH) style:UITableViewStyleGrouped];
+        _mytableView.delegate = self;
+        _mytableView.dataSource = self;
         
     }
     return _mytableView;
@@ -209,5 +212,21 @@
         _dataArray = @[].mutableCopy;
     }
     return _dataArray;
+}
+#pragma mark --scrollview
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+
+{
+    CGFloat offsetY = scrollView.contentOffset.y + self.mytableView.contentInset.top;
+    //注意
+    
+    //VVDLog(@"offsetY == %f panTranslationY==%f   y == %f",scrollView.contentOffset.y,self.mytableView.contentInset.top,self.navView.frame.origin.y);
+    if (offsetY > 0) {
+        CGRect rect = self.navView.frame;
+        rect.origin.y = -offsetY;
+        self.navView.frame = rect;
+    }else {
+        self.navView.frame = CGRectMake(0, 0, WIDTH, 64);
+    }
 }
 @end

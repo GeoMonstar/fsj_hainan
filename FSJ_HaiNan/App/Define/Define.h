@@ -13,6 +13,12 @@ typedef NS_ENUM(NSInteger,ViewControllerTransitionType){
     push,
     present,
 };
+// HomeHost
+#ifdef DEBUG
+#define HomeHost  @"http://47.89.38.215:6688/fsj"
+#else
+#define HomeHost  @"http://47.89.38.215:6688/fsj"
+#endif
 //汉字
 #define AccountChanged @"该用户已在其他设备登录"
 //属性
@@ -20,7 +26,7 @@ typedef NS_ENUM(NSInteger,ViewControllerTransitionType){
 
 //weakSelf宏
 #define WeakSelf(weakSelf)  __weak __typeof(&*self)weakSelf = self
-#define LRWeakSelf(type)  __weak typeof(type) weak##type = type
+#define LRWeakSelf(type)    __weak typeof(type) weak##type = type
 #define LRStrongSelf(type)  __strong typeof(type) type = weak##type
 
 
@@ -63,8 +69,16 @@ typedef NS_ENUM(NSInteger,ViewControllerTransitionType){
 #define WhiteColor [UIColor whiteColor]
 
 #define Lightgray SetColor(196, 197, 197, 1)
+
+#define SystemBlueColor [UIColor colorWithRed:(53/255.0) green:(166/255.0) blue:(187/255.0) alpha:1]
+#define SystemLightBlueColor [UIColor colorWithRed:(53/255.0) green:(166/255.0) blue:(187/255.0) alpha:0.86]
+#define SystemGrayColor [UIColor colorWithRed:(117/255.0) green:(117/255.0) blue:(117/255.0) alpha:1]
+#define SystemWhiteColor [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1]
+#define SystemGreenColor [UIColor colorWithRed:(130/255.0) green:(191/255.0) blue:(21/255.0) alpha:1]
+#define SystemLightGrayColor [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(244/255.0) alpha:1]
 //蓝色按钮
 #define BlueButton SetColor(54, 197, 252, 1)
+
 
 /***********int转string***********/
 #define IntToString(_int) _int = [NSString stringWithFormat:@"%d",[_int intValue]]
@@ -115,8 +129,9 @@ typedef NS_ENUM(NSInteger,ViewControllerTransitionType){
 #import <Masonry/Masonry.h>
 /* Tool */
 
-
-
+#import "Check.h"
+#import "Request.h"
+#import "JQAPIConfigure.h"
 /* Class */
 
 #import "FMDBConstants.h"
@@ -126,7 +141,7 @@ typedef NS_ENUM(NSInteger,ViewControllerTransitionType){
 #import "OneFSJModel.h"
 #import "GQ3646C.h"
 /* Category */
-
+#import "NSString+URL.h"
 #import "NSDictionary+SafeValue.h"
 #import "NSString+NSStringHexToBytes.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"

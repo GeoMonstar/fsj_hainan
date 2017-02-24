@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MJExtension.h"
+/**
+ *  @brief 参考json 暂时用不到
+ */
 typedef NS_ENUM(NSInteger, ParameterType){
 
 //基础参数类型
@@ -56,37 +59,37 @@ typedef NS_ENUM(NSInteger, ParameterStatus){
 
 //@property (nonatomic, assign)   ParameterType parameterType;
 /**
- *  参数读写 0 可读 1 可写 2 可读写
+ *  @brief 参数读写 0 可读 1 可写 2 可读写
  */
 @property (nonatomic, assign)   ParameterStatus parameterStatus;
 
 
 /**
- *  返回串口信息值
+ *  @brief 返回串口信息值
  */
 @property (nonatomic, copy)     NSString  *parameterValue;
 /**
- *  数据精度
+ *  @brief 数据精度
  */
 @property (nonatomic, copy)     NSString  *deci;
 /**
- *  数据描述
+ *  @brief 数据描述
  */
 @property (nonatomic, copy)     NSString  *detail;
 /**
- *  数据长度
+ *  @brief 数据长度
  */
 @property (nonatomic, copy)     NSString  *len;
 /**
- *  参数名称
+ *  @brief 参数名称
  */
 @property (nonatomic, copy)     NSString  *name;
 /**
- *  参数序号
+ *  @brief 参数序号
  */
 @property (nonatomic, copy)     NSString  *parno;
 /**
- *  参数类型 根据类型处理不同数据
+ *  @brief 参数类型 根据类型处理不同数据
  */
 @property (nonatomic, copy)     NSString  *type;
 

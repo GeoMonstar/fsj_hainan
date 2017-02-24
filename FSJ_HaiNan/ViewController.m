@@ -142,8 +142,9 @@
         SearchFrameBody *body = [[SearchFrameBody alloc]initWithFsjID:self.ShebeiIP FunctionCode:functionCode ParameterID:paramArr];
         NSData *bodyData = [body readData];
         [mutData appendData:bodyData];
-        
-        [[FSJUdpSocketTool sharedInstance]udpSendData:mutData];
+        [self.Udptool socketConnectHost];
+        [self.Udptool udpSendData:mutData];
+        //[[FSJUdpSocketTool sharedInstance]udpSendData:mutData];
         [FSJUdpSocketTool sharedInstance].reciveDataBlock = ^(NSData *data,NSString *host,UInt16 port){
             NSString *str =   [self convertDataToHexStr:data];
             NSLog(@"recv data from %@:%d -- %@   %ld", host, port,str,str.length);

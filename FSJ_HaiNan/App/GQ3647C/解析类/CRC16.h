@@ -15,6 +15,8 @@
 USHORT  useCRC16 (UCHAR * pucFrame,USHORT usLen);
 
 UInt16 count_CRC(unsigned char *addr, UInt16 num);
+/* 异或校验 */
+UInt16 count_BCC(unsigned char *addr, UInt16 num);
 
 static const UCHAR aucCRCHi[] = {
     
